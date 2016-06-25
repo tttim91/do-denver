@@ -1,0 +1,16 @@
+
+exports.up = function(knex, Promise) {
+  return knex.schema.createTable('place', function(table){
+    table.increments();
+    table.text('name');
+    table.text('lat');
+    table.text('long');
+    table.text('description');
+    table.text('image_url');
+    table.integer('category_id').references('id').inTable('category').onDelete('cascade');
+  })
+};
+
+exports.down = function(knex, Promise) {
+  return knex.schema.dropTableIfExists('place');
+};
