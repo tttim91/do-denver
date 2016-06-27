@@ -9,5 +9,8 @@ router.get('/', function(req, res, next){
     res.render ('clients/client',{title: 'sanity check', user: user.username});
   })
 })
-
+router.get('/logout', function(req, res, next){
+  req.session = null
+  res.redirect('/')
+})
 module.exports = router;
