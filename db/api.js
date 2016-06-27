@@ -8,6 +8,6 @@ module.exports = {
         return knex('client').where({id:id}).first();
     },
   findUserByUsername: function (username){
-    return knex('client').select().where({username: username}).first()
+    return knex('client').select().where({username: username}).first();
   }
 }
