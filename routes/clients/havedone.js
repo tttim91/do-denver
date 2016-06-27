@@ -1,12 +1,15 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db/knex');
-var db = require('../db/api');
+var knex = require('../../db/knex');
+// var db = require('../db/api');
 
-router.get('/client/havedone', function(req, res, next){
-  res.render('havedone');
+router.get('/havedone', function(req, res, next){
+  res.render('clients/havedone');
 });
 
-router.post('/client/havedone', function (req, res, next){
-  res.redirect('/client');
+router.post('/havedone', function (req, res, next){
+  res.redirect('/');
 });
+
+
+module.exports = router;
