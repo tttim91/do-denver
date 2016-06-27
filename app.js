@@ -17,7 +17,7 @@ var searches = require('./routes/clients/search');
 var authenticate = require('./routes/authenticate');
 
 var app = express();
-
+app.use(auth.passport.initialize())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -31,12 +31,15 @@ app.use(cookieParser());
 app.use(session({keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2]}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', routes);
+
+
+
+app.use('/', routes);
+app.use('/', authenticate);
 app.use('/clients', clients);
 app.use('/clients', havedone);
 app.use('/clients', todo);
 app.use('/clients', searches);
-app.use('/', authenticate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
