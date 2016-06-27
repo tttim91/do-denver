@@ -4,7 +4,7 @@ var db = require('../db/knex');
 var auth = require('../auth');
 
 /* GET home page. */
-router.get('/signup', function(req, res, next) {
+router.get('/signup', auth.isLoggedIn, function(req, res, next) {
   res.render('auth/signup', { title: 'Express' });
 });
 router.get('/logout', function(req, res, next){
@@ -12,7 +12,7 @@ router.get('/logout', function(req, res, next){
   res.redirect('/')
 });
 
-router.post('/signup', function(req, res, next) {
+router.post('/signup', auth.isLoggedIn, function(req, res, next) {
   db.findUserByUsername(req.body.username).then(function (user) {
       if(user) {
           res.render('auth/signup', {error: "user already exists"})
