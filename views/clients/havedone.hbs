@@ -1,6 +1,15 @@
-<p>
-  sanity check
-</p>
+{{#each places}}
+<div class="">
+  <p>
+    {{this.name}}
+  </p>
+  <img src="{{this.image_url}}" alt="image" />
+</div>
+{{/each}}
+
+
+
+
 <a href="../clients"><button type="button">Home</button></a>
 <a href="todo"><button type="button">Things I todo</button></a>
 <a href="search"><button type="button">Search for things to do</button></a>
