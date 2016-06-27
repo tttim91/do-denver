@@ -10,6 +10,9 @@ module.exports = {
   findUserByUsername: function (username){
     return knex('client').select().where({username: username}).first();
   },
+  editPlace: function(body){
+    return knex('place').where('place.id', body.id).update(body)
+  },
   getPlaces: function(id){
     return knex('client').where('client.id', id).first()
     .then(function(client){
