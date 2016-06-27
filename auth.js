@@ -17,7 +17,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
 }));
 module.exports = {
     passport: passport,
-    
+
     createUser: function(body) {
         var hash = bcrypt.hashSync(body.password, 8);
         body.password = hash;
@@ -27,6 +27,13 @@ module.exports = {
     },
     isLoggedIn: function(req, res, next) {
         if(req.session.userId) {
+            res.redirect('clients');
+        } else {
+            next();
+        }
+    },
+    isNotLoggedIn: function(req, res, next) {
+        if(!req.session.userId) {
             res.redirect('/');
         } else {
             next();
