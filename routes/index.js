@@ -4,7 +4,7 @@ var knex = require('../db/knex');
 var db = require('../db/api');
 var auth = require('../auth');
 
-router.get('/', function(req, res, next){
+router.get('/', auth.isLoggedIn, function(req, res, next){
   res.render('index', {title: 'Do Denver'});
 });
 router.post('/login',
