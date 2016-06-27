@@ -17,6 +17,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
 }));
 module.exports = {
     passport: passport,
+    
     createUser: function(body) {
         var hash = bcrypt.hashSync(body.password, 8);
         body.password = hash;
