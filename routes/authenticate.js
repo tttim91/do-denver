@@ -11,18 +11,7 @@ router.get('/logout', function(req, res, next){
     req.session = null;
   res.redirect('/')
 });
-router.get('/login', function(req, res, next) {
 
-  if(req.session.userID) {
-    res.redirect('/client/:id');
-  } else {
-    next();
-  }
-}, function(req, res, next){
-    res.render('/login')
-}
-  res.render('login', { title: 'Express' });
-});
 router.post('/signup', function(req, res, next) {
   db.findUserByUsername(req.body.username).then(function (user) {
       if(user) {
@@ -35,10 +24,10 @@ router.post('/signup', function(req, res, next) {
       }
   })
 });
-router.post('/login', function(req, res, next) {
+router.post('/', function(req, res, next) {
   auth.passport.authenticate('local', function(err, user, info) {
             if(err) {
-                res.render('login', {error: err})
+                res.render('index', {error: err})
             } else if (user) {
                 req.session.userId = user.id;
                 res.redirect('/client/' + req.session.userId);
