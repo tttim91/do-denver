@@ -7,13 +7,13 @@
 </div>
 <button type="button">Edit This Post</button>
 <div class="hidden">
-  <form action="/havedone" method="post">
+  <form action="/clients/havedone" method="post">
     <input type="number" name="id" value="{{this.id}}">
     <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
     <input type="float" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
     <input type="float" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
     <textarea name="description" rows=5>{{this.description}}</textarea>
-    <input type="url" name="image_url" value="{{this.url}}" placeholder="{{this.image_url}}">
+    <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
     <input type="number" name="category_id" value="{{this.category_id}}">
     <button type="submit">Submit</button>
   </form>

@@ -11,9 +11,9 @@ router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
 });
 
 router.post('/havedone', function (req, res, next) {
-  knex('place').where('place.id', req.session.userId).update(req.body)
+  db.editPlace(req.body)
     .then(function(){
-      res.render('clients/havedone');
+      res.redirect('/clients/havedone');
     })
 });
 
