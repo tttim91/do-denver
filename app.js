@@ -18,6 +18,7 @@ var authenticate = require('./routes/authenticate');
 
 var app = express();
 
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -37,6 +38,7 @@ app.use('/clients', havedone);
 app.use('/clients', todo);
 app.use('/clients', searches);
 app.use('/', authenticate);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
