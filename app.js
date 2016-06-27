@@ -31,6 +31,9 @@ app.use(cookieParser());
 app.use(session({keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2]}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+
 app.use('/', routes);
 app.use('/', authenticate);
 app.use('/clients', clients);
