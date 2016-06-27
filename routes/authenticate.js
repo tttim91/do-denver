@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db/knex');
+var db = require('../db/api');
 var auth = require('../auth');
 
 /* GET home page. */
@@ -19,7 +19,7 @@ router.post('/signup', function(req, res, next) {
       } else {
           auth.createUser(req.body).then(function (id) {
               req.session.userId = id
-              res.redirect('clients/client')
+              res.redirect('/clients')
           })
       }
   })
