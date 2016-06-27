@@ -41,7 +41,7 @@ function initMap() {
     //Dynamically changes initial map type to roadmap
     map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 ​
-    detectBrowser();
+    // detectBrowser();
 ​
     // var image = {
     //     url: 'http://icons.iconarchive.com/icons/flat-icons.com/flat/128/Beer-icon.png',

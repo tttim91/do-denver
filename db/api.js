@@ -19,5 +19,15 @@ module.exports = {
     }).then(function(results){
       return results;
     })
-  }
+  },
+  joinAll: function(userId) {
+        return knex('client').select('client.first_name', 'client.last_name', 'client.username', 'client.id as client_id', 'client.password', 'place.id as place_id', 'place.name as place_name', 'place.lat', 'place.lng', 'place.description', 'place.image_url', 'category.name as category_name')
+        .join('client_place', function() {
+            this.on('client.id', '=', 'client_place.client_id');
+        }).join('place', function() {
+            this.on('place.id', '=', 'client_place.place_id');
+        }).join('category', function() {
+            this.on('place.category_id', '=', 'category.id');
+        }).where('client.id', '=', userId)
+    }
 }
