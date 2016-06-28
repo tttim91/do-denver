@@ -16,8 +16,9 @@ router.get('/todo', auth.isNotLoggedIn, function(req, res, next){
 
 
 router.post('/todo', function (req, res, next){
-  db.addPlace(req.body).then(function(){
-    res.redirect('/clients/todo');
+  db.addPlace(req.body, req.session.userId).then(function() {
+    console.log(req.body, req.session.userId)
+      res.redirect('/clients/todo');
   })
 });
 
