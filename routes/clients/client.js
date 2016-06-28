@@ -15,11 +15,20 @@ router.get('/logout', function(req, res, next){
   res.redirect('/')
 })
 router.get('/sendData', function(req, res, next){
-  console.log("sendData route received");
-  return db.joinAll(25).then(function(data){
-    console.log(data);
-    res.send(data);
+  return db.joinAll(req.session.userId).then(function(data){
+    res.send([req.session.userId,data]);
     res.render('index', {title: 'Express'})
   })
 })
+router.post('/addPlace', function(req, res, next) {
+    knex('place').insert({name: req.body.name, lat:req.body.lat, lng:req.body.lng, description:"N/A", image_url:req.body.image_url, category_id: 20}).then(function() {
+        res.redirect('/');
+    })
+})
+
+// router.post('/listPlaces', function(req, res, next) {
+//     console.log(" List places Post request recieved")
+//     console.log(req.body);
+//
+// })
 module.exports = router;

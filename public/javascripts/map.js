@@ -80,13 +80,21 @@ function initMap() {
     //     radius: 50000,
     //     types: ['amusement_park']
     // };
-
+    //
     var request = {
-        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
+        placeId: 'ChIJBf_eksB4bIcRpc3LOaKiFrM'
     };
 
+    // var request = {
+    //     location: denverObject,
+    //     radius: '500',
+    //     query: 'restaurant'
+    // };
     service = new google.maps.places.PlacesService(map);
     service.getDetails(request, callback);
+
+    // service2 = new google.maps.places.PlacesService(map);
+    // service2.textSearch(request, callback2);
     // service = new google.maps.places.PlacesService(map);
     // // createPhotoMarker(service);
     // service.nearbySearch(request, callback);
@@ -110,6 +118,27 @@ function initMap() {
     //     infowindow.open(map, marker2);
     // });
 
+    $.get('/clients/sendData').then(function(data) {
+        placeClientMarkers(data[0], data[1]);
+    });
+
+    function placeClientMarkers (userId, data) {
+           for(var i=0; i<data.length; i++) {
+           // console.log("Starting placeClientMarkers function");
+           // console.log(data[0].lat);
+           // console.log(data[0].lng);
+           var image = {
+
+                    }
+                var marker = new google.maps.Marker({
+                 map: map,
+                 position: {lat:data[i].lat,
+
+                            lng:data[i].lng}
+               });
+               attachDetails(marker, data[i]);
+           }
+   }
     //infowindow.close will close the window
 
     //Can move infowindow to other marker by calling infowindow.open(map.marker3)
@@ -139,42 +168,51 @@ function initMap() {
     // attachSecretMessage(marker, secretMessage);
 }
 
+var request = {
+    placeId: 'ChIJBf_eksB4bIcRpc3LOaKiFrM'
+};
 
-//
-function callback(results, status) {
+$('.test').click(function() {
+    service.getDetails(request, callback);
+})
+
+
+function callback(place, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-            var place = results[i];
-            createMarker(results[i]);
+        console.log(place);
+        createMarker(place);
+        var data = {
+            name: place.name,
+            lat: place.geometry.location.lat,
+            lng: place.geometry.location.lng,
+            image_url: place.url,
+            category: place.types[0]
         }
+        console.log(data);
+        $.post('/clients/addPlace', data);
     }
 }
 
-$.get('/clients/sendData').then(function(data) {
-    console.log("Get request sent");
-    console.log(data);
-    placeClientMarkers(1, data);
-});
+// function callback2(results, status) {
+//   if (status == google.maps.places.PlacesServiceStatus.OK) {
+//     console.log(results);
+//     console.log("Posting results")
+//     $.post('clients/listPlaces', results)
+//     console.log("Results posted")
+//   }
+// }
 
- function placeClientMarkers (userId, data) {
-        for(var i=0; i<data.length; i++) {
-        // console.log("Starting placeClientMarkers function");
-        // console.log(data[0].lat);
-        // console.log(data[0].lng);
-            var marker = new google.maps.Marker({
-              map: map,
-              position: {lat:data[i].lat,
-                         lng:data[i].lng}
-            });
-            attachDetails(marker, data[i]);
-        }
-}
 
-   function createMarker(lat,lng,map) {
-  var marker = new google.maps.Marker({
-    map: map,
-    position: {lat:lat,
-               lng:lng}
+
+
+
+
+
+ function createMarker(place) {
+        var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location,
+        icon: "../images/amusement-park.svg"
   });
 
   // google.maps.event.addListener(marker, 'click', function() {
