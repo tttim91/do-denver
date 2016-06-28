@@ -7,6 +7,7 @@ var auth = require('../auth');
 router.get('/', auth.isLoggedIn, function(req, res, next){
   res.render('index', {title: 'Do Denver'});
 });
+
 router.post('/login',
 function(req, res, next) {
     auth.passport.authenticate('local', function(err, user, info) {

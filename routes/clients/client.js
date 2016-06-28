@@ -5,6 +5,7 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/', auth.isNotLoggedIn, function(req, res, next){
+  console.log(req.session)
   db.findUserById(req.session.userId)
   .then(function(user) {
     res.render ('clients/client',{title: 'sanity check', user: user.username});
@@ -21,7 +22,7 @@ router.get('/sendData', function(req, res, next){
   })
 })
 router.post('/addPlace', function(req, res, next) {
-    knex('place').insert({name: req.body.name, lat:req.body.lat, lng:req.body.lng, description:"N/A", image_url:req.body.image_url, category_id: 20}).then(function() {
+    knex('place').insert({name: req.body.name, lat:req.body.lat, lng:req.body.lng, description:"N/A", image_url:req.body.image_url, category_id: 37}).then(function() {
         res.redirect('/');
     })
 })

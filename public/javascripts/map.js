@@ -118,9 +118,9 @@ function initMap() {
     //     infowindow.open(map, marker2);
     // });
 
-    $.get('/clients/sendData').then(function(data) {
-        placeClientMarkers(data[0], data[1]);
-    });
+    // $.get('/clients/sendData').then(function(data) {
+    //     placeClientMarkers(data[0], data[1]);
+    // });
 
     function placeClientMarkers (userId, data) {
            for(var i=0; i<data.length; i++) {
@@ -189,7 +189,7 @@ function callback(place, status) {
             category: place.types[0]
         }
         console.log(data);
-        $.post('/clients/addPlace', data);
+        // $.post('/clients/addPlace', data);
     }
 }
 
