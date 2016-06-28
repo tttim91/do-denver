@@ -7,7 +7,7 @@ var auth = require('../../auth');
 router.get('/todo', auth.isNotLoggedIn, function(req, res, next){
   db.getCategories().then(function(categories){
     db.getPlaces(req.session.userId).then(function(places){
-      console.log(places, categories)
+      // console.log(places, categories)
       res.render('clients/todo', {categories: categories, places:places});
     })
   })
@@ -16,7 +16,9 @@ router.get('/todo', auth.isNotLoggedIn, function(req, res, next){
 
 
 router.post('/todo', function (req, res, next){
-  res.redirect('/clients');
+  db.addPlace(req.body).then(function(){
+    res.redirect('/clients/todo');
+  })
 });
 
 

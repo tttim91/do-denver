@@ -4,6 +4,11 @@ module.exports = {
   addUser: function(body){
     return knex('client').insert(body, 'id');
   },
+
+  addPlace: function(body){
+    return knex('place').insert(body, 'id')
+  },
+    
   findUserById: function(id) {
         return knex('client').where({id:id}).first();
     },
