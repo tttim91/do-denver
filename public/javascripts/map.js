@@ -127,9 +127,13 @@ function initMap() {
            // console.log("Starting placeClientMarkers function");
            // console.log(data[0].lat);
            // console.log(data[0].lng);
-               var marker = new google.maps.Marker({
+           var image = {
+
+                    }
+                var marker = new google.maps.Marker({
                  map: map,
                  position: {lat:data[i].lat,
+
                             lng:data[i].lng}
                });
                attachDetails(marker, data[i]);
@@ -164,8 +168,13 @@ function initMap() {
     // attachSecretMessage(marker, secretMessage);
 }
 
+var request = {
+    placeId: 'ChIJBf_eksB4bIcRpc3LOaKiFrM'
+};
 
-//
+$('.test').click(function() {
+    service.getDetails(request, callback);
+})
 
 
 function callback(place, status) {
@@ -202,7 +211,8 @@ function callback(place, status) {
  function createMarker(place) {
         var marker = new google.maps.Marker({
         map: map,
-        position: place.geometry.location
+        position: place.geometry.location,
+        icon: "../images/amusement-park.svg"
   });
 
   // google.maps.event.addListener(marker, 'click', function() {
