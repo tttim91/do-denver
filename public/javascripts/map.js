@@ -287,8 +287,8 @@ function detectBrowser() {
         mapdiv.style.width = '100%';
         mapdiv.style.height = '100%';
     } else {
-        mapdiv.style.width = '600px';
-        mapdiv.style.height = '800px';
+        mapdiv.style.width = '50vw';
+        mapdiv.style.height = '50vh';
     }
 }
 
