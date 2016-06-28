@@ -27,7 +27,7 @@ module.exports = {
     },
     isLoggedIn: function(req, res, next) {
         if(req.session.userId) {
-            res.redirect('clients');
+            res.redirect('/clients');
         } else {
             next();
         }

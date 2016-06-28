@@ -5,6 +5,7 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/', auth.isNotLoggedIn, function(req, res, next){
+  console.log(req.session)
   db.findUserById(req.session.userId)
   .then(function(user) {
     res.render ('clients/client',{title: 'sanity check', user: user.username});
