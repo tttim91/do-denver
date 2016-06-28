@@ -142,14 +142,12 @@ function initMap() {
 
 //
 
-// function callback(results, status) {
-//     if (status == google.maps.places.PlacesServiceStatus.OK) {
-//         for (var i = 0; i < results.length; i++) {
-//             var place = results[i];
-//             createMarker(results[i]);
-//         }
-//     }
-// }
+function callback(plsce, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+            console.log(place);
+            createMarker(place);
+    }
+}
 $.get('/clients/sendData').then(function(data) {
     console.log("Get request sent");
     console.log(data);
@@ -170,11 +168,10 @@ $.get('/clients/sendData').then(function(data) {
         }
 }
 
-   function createMarker(lat,lng,map) {
-  var marker = new google.maps.Marker({
-    map: map,
-    position: {lat:lat,
-               lng:lng}
+ function createMarker(place) {
+        var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
   });
 
   // google.maps.event.addListener(marker, 'click', function() {
