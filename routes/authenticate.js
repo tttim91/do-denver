@@ -19,7 +19,7 @@ router.post('/signup', auth.isLoggedIn, function(req, res, next) {
       } else {
           auth.createUser(req.body).then(function (id) {
               req.session.userId = id
-              res.redirect('clien/client')
+              res.redirect('clients/client')
           })
       }
   })
