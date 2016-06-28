@@ -14,4 +14,12 @@ router.get('/logout', function(req, res, next){
   req.session = null
   res.redirect('/')
 })
+router.get('/sendData', function(req, res, next){
+  console.log("sendData route received");
+  return db.joinAll(25).then(function(data){
+    console.log(data);
+    res.send(data);
+    res.render('index', {title: 'Express'})
+  })
+})
 module.exports = router;

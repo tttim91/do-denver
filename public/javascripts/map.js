@@ -141,6 +141,7 @@ function initMap() {
 
 
 //
+
 // function callback(results, status) {
 //     if (status == google.maps.places.PlacesServiceStatus.OK) {
 //         for (var i = 0; i < results.length; i++) {
@@ -149,7 +150,6 @@ function initMap() {
 //         }
 //     }
 // }
-
 $.get('/clients/sendData').then(function(data) {
     console.log("Get request sent");
     console.log(data);
