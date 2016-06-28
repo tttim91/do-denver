@@ -10,6 +10,15 @@ router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
   })
 });
 
+router.get('/havedone/:id/delete', function(req, res, next){
+      console.log(req.params.id)
+    db.deletePlace(req.params.id).then(function(){
+      res.redirect ('/clients/havedone');
+  }).catch(function(error){
+    next()
+  })
+})
+
 router.post('/havedone', function (req, res, next) {
   db.editPlace(req.body)
     .then(function(){
