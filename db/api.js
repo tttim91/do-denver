@@ -5,10 +5,26 @@ module.exports = {
     return knex('client').insert(body, 'id');
   },
 
-  addPlace: function(body){
+  addPlace: function(body, userid){
     return knex('place').insert(body, 'id')
+    .then(function(id){
+      console.log('this is the id' + id)
+      return knex('client_place').insert({
+        client_id: userid,
+        place_id: id[0],
+        have_visited: false
+      })
+    })
   },
-    
+
+  // addClientPlace: function(userid, placeid) {
+  //   return knex('client_place').insert({
+  //     client_id: userid,
+  //     place_id: placeid,
+  //     have_visited: false
+  //   })
+  // },
+
   findUserById: function(id) {
         return knex('client').where({id:id}).first();
     },
