@@ -26,7 +26,14 @@ router.post('/addPlace', function(req, res, next) {
         res.redirect('/');
     })
 })
+router.post('/seePlaces', function(req, res, next) {
+    console.log("Post Recieved");
+    console.log(req.body.length);
+    for(var i=0; i<req.body.length; i++) {
+        console.log(req.body['data[results]['+i+'][name]'])
+    }
 
+})
 // router.post('/listPlaces', function(req, res, next) {
 //     console.log(" List places Post request recieved")
 //     console.log(req.body);
