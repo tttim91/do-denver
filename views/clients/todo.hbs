@@ -1,6 +1,36 @@
-<p>
-  sanity check
-</p>
+{{#each places}}
+  <div>
+    <p>{{this.name}}</p>
+    <img src="{{this.image_url}}">
+    <p>{{this.description}}</p>
+  </div>
+{{/each}}
+<form action="/clients/havedone" method="post">
+  <input class=".id" type="hidden" name="id" value="{{this.id}}">
+  <label for="text">Name of Place</label>
+  <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
+  <br>
+  <label for="float">Latitude</label>
+  <input type="float" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
+  <br>
+  <label for="float">Longitude</label>
+  <input type="float" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
+  <br>
+  <label for="textarea">Description</label>
+  <textarea name="description" rows=5>{{this.description}}</textarea>
+  <br>
+  <label for="url">Image URL</label>
+  <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
+  <br>
+  <select name="category_id">
+    {{#each categories}}
+      <option value="{{this.category_id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  <input type="hidden" name="user_created" value="true">
+  <br>
+  <button type="submit">Submit</button>
+</form>
 <a href="../clients"><button type="button">Home</button></a>
 <a href="havedone"><button type="button">Things I have done</button></a>
 <a href="search"><button type="button">Search for things to do></button></a>

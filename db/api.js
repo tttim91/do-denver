@@ -13,6 +13,15 @@ module.exports = {
   editPlace: function(body){
     return knex('place').where('place.id', body.id).update(body)
   },
+
+  deletePlace: function(id){
+    return knex('place').where('place.id', id).del()
+  },
+
+  getCategories: function(){
+    return knex('category').select();
+  },
+
   getPlaces: function(id){
     return knex('client').where('client.id', id).first()
     .then(function(client){
