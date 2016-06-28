@@ -5,26 +5,25 @@
     <p>{{this.description}}</p>
   </div>
 {{/each}}
-<form action="/clients/havedone" method="post">
-  <input class=".id" type="hidden" name="id" value="{{this.id}}">
+<form action="/clients/todo" method="post">
   <label for="text">Name of Place</label>
-  <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
+  <input type="text" name="name" placeholder="{{this.name}}">
   <br>
   <label for="float">Latitude</label>
-  <input type="float" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
+  <input type="float" name="lat" placeholder="{{this.lat}}">
   <br>
   <label for="float">Longitude</label>
-  <input type="float" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
+  <input type="float" name="lng" placeholder="{{this.lng}}">
   <br>
   <label for="textarea">Description</label>
   <textarea name="description" rows=5>{{this.description}}</textarea>
   <br>
   <label for="url">Image URL</label>
-  <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
+  <input type="url" name="image_url" placeholder="{{this.image_url}}">
   <br>
   <select name="category_id">
     {{#each categories}}
-      <option value="{{this.category_id}}">{{this.name}}</option>
+      <option value="{{this.id}}">{{this.name}}</option>
     {{/each}}
   </select>
   <input type="hidden" name="user_created" value="true">
