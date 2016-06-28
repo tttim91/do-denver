@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
     table.float('lng', 10, 6);
     table.text('description');
     table.text('image_url');
+    table.boolean('user_created');
     table.integer('category_id').references('id').inTable('category').onDelete('cascade');
   })
 };
