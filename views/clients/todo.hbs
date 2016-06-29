@@ -4,6 +4,7 @@
     <img src="{{this.image_url}}">
     <p>{{this.description}}</p>
   </div>
+    <a href="../clients/havedone/{{this.id}}/update"><button type="button">Update Visited</button></a>
 {{/each}}
 <form action="/clients/todo" method="post">
   <label for="text">Name of Place</label>
