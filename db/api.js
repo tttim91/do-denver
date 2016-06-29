@@ -27,6 +27,10 @@ module.exports = {
     return knex('place').where('place.id', body.id).update(body)
   },
 
+  editVisit: function (body) {
+    return knex('client_place').where('place_id', body.id).update(body)
+  },
+
   deletePlace: function(id){
     return knex('place').where('place.id', id).del()
   },
