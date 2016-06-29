@@ -21,14 +21,13 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
                 var output = JSON.parse(body)
                 knex('category').select('id').where('name', '=', req.query.category).first().then(function(id) {
                     console.log("Knex category query entered")
-                    console.log("output: " + output.results[0])
-                    console.log("id: " + id)
+                    console.log("id" + id)
                     for(var i=0; i<output.results.length; i++) {
                         answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "N/A", image_url: "N/A", user_created: false, category_id: id.id})
                     }
                 })
             }
-            console.log("answer: " + answer);
+            console.log("answer" + answer);
             res.render('clients/search', {answer: answer, query: req.query.query, category: req.query.category, id: req.session.userId});
         })
     } else {
