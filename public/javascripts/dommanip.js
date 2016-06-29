@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $( '.location > div > button').click(function(){
-    $('.hidden').toggle()
+  $('.edit').click(function(){
+    $('.hidden_form').toggle()
   })
 })
