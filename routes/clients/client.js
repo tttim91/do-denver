@@ -23,7 +23,7 @@ router.get('/sendData', function(req, res, next){
     return db.joinAll(req.session.userId).then(function(data){
     console.log("tables all joined")
     res.send([req.session.userId,data]);
-    res.render('index', {title: 'Express'})
+    // res.render('index', {title: 'Express'})
   })
 })
 
