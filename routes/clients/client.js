@@ -11,16 +11,19 @@ router.get('/', auth.isNotLoggedIn, function(req, res, next){
     res.render ('clients/client',{title: 'sanity check', user: user.username});
   })
 })
+
 router.get('/logout', function(req, res, next){
   req.session = null
   res.redirect('/')
 })
+
 router.get('/sendData', function(req, res, next){
   return db.joinAll(req.session.userId).then(function(data){
     res.send([req.session.userId,data]);
     res.render('index', {title: 'Express'})
   })
 })
+
 router.post('/addPlace', function(req, res, next) {
     knex('place').insert({name: req.body.name, lat:req.body.lat, lng:req.body.lng, description:"N/A", image_url:req.body.image_url, category_id: 37}).then(function() {
         res.redirect('/');
