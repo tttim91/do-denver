@@ -13,6 +13,14 @@ router.get('/todo', auth.isNotLoggedIn, function(req, res, next){
   })
 });
 
+router.get('/havedone/:id/update', function(req, res, next){
+      console.log(req.params.id)
+    db.editVisited(req.params.id).then(function(){
+      res.redirect ('/clients/todo');
+  }).catch(function(error){
+    next()
+  })
+})
 
 
 router.post('/todo', function (req, res, next){
