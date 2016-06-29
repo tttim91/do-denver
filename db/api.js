@@ -43,6 +43,10 @@ module.exports = {
     return knex('client_place').where('place_id', body.id).update(body)
   },
 
+  editNotVisit: function (body) {
+    return knex('client_place').where('place_id', body.id).update(body)
+  },
+
   editVisited: function (id) {
     return knex('client_place').where('place_id', id).update('have_visited', true)
   },
