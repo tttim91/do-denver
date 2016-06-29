@@ -16,7 +16,9 @@ router.get('/logout', function(req, res, next){
   res.redirect('/')
 })
 router.get('/sendData', function(req, res, next){
-  return db.joinAll(req.session.userId).then(function(data){
+    console.log("Send Data route hit")
+    return db.joinAll(req.session.userId).then(function(data){
+    console.log("tables all joined")
     res.send([req.session.userId,data]);
     res.render('index', {title: 'Express'})
   })
