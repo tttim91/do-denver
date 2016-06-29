@@ -1,43 +1,48 @@
-<form class="" action="/clients/search" method="get">
-    <select class="categorySearch" name="category">
-        <option value="restaurant">Restaurant</option>
-        <option value="amusement_park">Amusement Park</option>
-        <option value="aquarium">Aquarium</option>
-        <option value="art_gallery">Art Gallery</option>
-        <option value="bakery">Bakery</option>
-        <option value="bank">Bank</option>
-        <option value="bar">Bar</option>
-        <option value="book_store">Book Store</option>
-        <option value="bowling_alley">Bowling Alley</option>
-        <option value="cafe">Cafe</option>
-        <option value="clothing_store">Clothing Store</option>
-        <option value="convenience_store">Convenience Store</option>
-        <option value="department_store">Department Store</option>
-        <option value="electronics_store">Electronics Store</option>
-        <option value="furniture_store">Furniture Store</option>
-        <option value="gas_station">Gas Station</option>
-        <option value="grocery_or_supermarket">Grocery Store</option>
-        <option value="gym">Gym</option>
-        <option value="hardware_store">Hardware Store</option>
-        <option value="home_goods_store">Home Goods Store</option>
-        <option value="library">Library</option>
-        <option value="lodging">Lodging</option>
-        <option value="movie_theater">Movie Theater</option>
-        <option value="museum">Museum</option>
-        <option value="night_club">Night Club</option>
-        <option value="park">Park</option>
-        <option value="post_office">Post Office</option>
-        <option value="school">School</option>
-        <option value="shoe_store">Shoe Store</option>
-        <option value="shopping_mall">Shopping Mall</option>
-        <option value="spa">Spa</option>
-        <option value="stadium">Stadium</option>
-        <option value="university">University</option>
-        <option value="zoo">Zoo</option>
-    </select>
-    <input class="searchTerm" type="text" name="query" placeholder="Search Term" value="{{query}}">
-    <button type="submit">Search</button>
-</form>
+<div class="row">
+  <div class="col-md-12 col-xs-12">
+    <form class="" action="/clients/search" method="get">
+        <select class="categorySearch" name="category">
+            <option value="restaurant">Restaurant</option>
+            <option value="amusement_park">Amusement Park</option>
+            <option value="aquarium">Aquarium</option>
+            <option value="art_gallery">Art Gallery</option>
+            <option value="bakery">Bakery</option>
+            <option value="bank">Bank</option>
+            <option value="bar">Bar</option>
+            <option value="book_store">Book Store</option>
+            <option value="bowling_alley">Bowling Alley</option>
+            <option value="cafe">Cafe</option>
+            <option value="clothing_store">Clothing Store</option>
+            <option value="convenience_store">Convenience Store</option>
+            <option value="department_store">Department Store</option>
+            <option value="electronics_store">Electronics Store</option>
+            <option value="furniture_store">Furniture Store</option>
+            <option value="gas_station">Gas Station</option>
+            <option value="grocery_or_supermarket">Grocery Store</option>
+            <option value="gym">Gym</option>
+            <option value="hardware_store">Hardware Store</option>
+            <option value="home_goods_store">Home Goods Store</option>
+            <option value="library">Library</option>
+            <option value="lodging">Lodging</option>
+            <option value="movie_theater">Movie Theater</option>
+            <option value="museum">Museum</option>
+            <option value="night_club">Night Club</option>
+            <option value="park">Park</option>
+            <option value="post_office">Post Office</option>
+            <option value="school">School</option>
+            <option value="shoe_store">Shoe Store</option>
+            <option value="shopping_mall">Shopping Mall</option>
+            <option value="spa">Spa</option>
+            <option value="stadium">Stadium</option>
+            <option value="university">University</option>
+            <option value="zoo">Zoo</option>
+        </select>
+        <input class="searchTerm" type="text" name="query" placeholder="Search Term" value="{{query}}">
+        <button type="submit">Search</button>
+      </form>
+  </div>
+</div>
+
 {{#if answer}}
 {{#each answer}}
     <div class="place">{{this.name}} - {{this.address}}
