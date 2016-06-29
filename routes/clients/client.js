@@ -45,7 +45,11 @@ router.post('/seePlaces', function(req, res, next) {
 
 router.post('/sendToDo', function(req, res, next) {
     console.log("Send To Do Post request recieved")
-    console.log(req.body);
+    console.log(req.body.lat);
+    var exists = false;
+    knex('place').select('lat', 'lng').then(function(data) {
+        console.log(data)
+    })
     db.addPlaceToDo(req.body, req.session.userId).then(function(){
         res.redirect('/clients/todo')
     })
