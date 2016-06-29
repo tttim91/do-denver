@@ -48,12 +48,24 @@ router.post('/sendToDo', function(req, res, next) {
     console.log(req.body.lat);
     console.log('look at me ' + req.body)
     var exists = false;
-    knex('place').select('lat', 'lng').then(function(data) {
+    knex('place').select('lat', 'lng')
+    .then(function(data) {
         console.log(data)
+        for(var i=0; i<data.length; i++) {
+            console.log("Data.lat: " + data[i].lat)
+            console.log("Req.body.lat: " + req.body.lat)
+            if(data[i].lat == Number(req.body.lat).toFixed(4) && data[i].lng == Number(req.body.lng).toFixed(3)) {
+                exists = true;
+            }
+        }
+        console.log(exists);
+        if(exists == false) {
+            db.addPlaceToDo(req.body, req.session.userId).then(function(){
+                res.redirect('/clients/todo')
+            })
+        }
     })
-    db.addPlaceToDo(req.body, req.session.userId).then(function(){
-        res.redirect('/clients/todo')
-    })
+
 })
 
 router.post('/sendDone', function(req, res, next) {
