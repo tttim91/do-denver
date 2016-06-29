@@ -5,7 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('cookie-session');
 var bodyParser = require('body-parser');
-var auth = require('./auth')
+var auth = require('./auth');
+
 
 require('dotenv').load();
 

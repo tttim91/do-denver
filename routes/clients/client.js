@@ -9,7 +9,7 @@ router.get('/', auth.isNotLoggedIn, function(req, res, next){
   db.findUserById(req.session.userId)
   .then(function(user) {
       console.log(user)
-    res.render ('clients/client',{title: 'sanity check', user: user.username});
+    res.render ('clients/client',{user: user.username, id: req.session.userId});
   })
 })
 

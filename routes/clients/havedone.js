@@ -6,7 +6,7 @@ var auth = require('../../auth');
 
 router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
   db.getVisitedPlaces(req.session.userId).then(function(places){
-  res.render('clients/havedone', {places: places});
+  res.render('clients/havedone', {places: places, id: req.session.userId});
   })
 });
 
