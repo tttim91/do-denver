@@ -5,16 +5,14 @@
     <p>{{this.description}}</p>
   </div>
     <a href="../clients/havedone/{{this.id}}/update"><button type="button">Update Visited</button></a>
+
 {{/each}}
 <form action="/clients/todo" method="post">
   <label for="text">Name of Place</label>
   <input type="text" name="name" placeholder="{{this.name}}">
   <br>
-  <label for="float">Latitude</label>
-  <input type="float" name="lat" placeholder="{{this.lat}}">
-  <br>
-  <label for="float">Longitude</label>
-  <input type="float" name="lng" placeholder="{{this.lng}}">
+  <label id="address" for="address">Address</label>
+  <input name="address" type="address" value="address" placeholder="enter address">
   <br>
   <label for="textarea">Description</label>
   <textarea name="description" rows=5>{{this.description}}</textarea>
@@ -31,6 +29,7 @@
   <br>
   <button type="submit">Submit</button>
 </form>
+<a href="../clients/todo/update"><button type="button">Update Info</button></a>
 <a href="../clients"><button type="button">Home</button></a>
 <a href="havedone"><button type="button">Things I have done</button></a>
 <a href="search"><button type="button">Search for things to do></button></a>
