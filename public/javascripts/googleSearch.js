@@ -25,7 +25,7 @@ $('.addDone').click(function() {
 })
 
 $('.expand').click(function() {
-    $(this).prev('.hidden').toggle();
+    $(this).prev().toggleClass('hidden');
     if($(this).text() === "Show Details") {
         $(this).html("Hide Details")
     } else {
