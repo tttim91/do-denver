@@ -32,6 +32,7 @@ router.post('/addPlace', function(req, res, next) {
         res.redirect('/');
     })
 })
+
 router.post('/seePlaces', function(req, res, next) {
     var output = [];
     console.log("Post Recieved HARD");
@@ -42,6 +43,7 @@ router.post('/seePlaces', function(req, res, next) {
     console.log(output);
     res.render('clients/search', {output: output})
 })
+
 router.post('/sendToDo', function(req, res, next) {
     console.log("Send To Do Post request recieved")
     console.log(req.body);
