@@ -12,7 +12,7 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
                 var output = JSON.parse(body)
                 for(var i=0; i<output.results.length; i++) {
                     console.log(output.results[i].name);
-                    answer.push({name: output.results[i].name, address: output.results[i].vicinity})
+                    answer.push({name: output.results[i].name, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "N/A", image_url: output.results[0].photos[0].html_attributions[0], user_created: false, category_id: 20})
                 }
             }
             res.render('clients/search', {answer:answer, query: req.query.query, category: req.query.category});

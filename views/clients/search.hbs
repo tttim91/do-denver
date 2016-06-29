@@ -43,10 +43,18 @@
     <button type="submit">Search</button>
 </form>
 {{#if answer}}
-<ul>
 {{#each answer}}
-    <li> Name: {{this.name}} </li>
-    <li> Address: {{this.address}} </li>
+    <div class="place">{{this.name}}
+    <div class="hidden">
+        <p>{{this.name}}</p>
+        <p>{{this.lat}}</p>
+        <p>{{this.lng}}</p>
+        <p>{{this.description}}</p>
+        <p>{{this.image_url}}</p>
+        <p>{{this.user_created}}</p>
+        <p>{{this.category_id}}</p>
+    </div>
+</div>
 {{/each}}
 </ul>
 {{/if}}

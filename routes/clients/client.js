@@ -5,9 +5,10 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/', auth.isNotLoggedIn, function(req, res, next){
-  console.log(req.session)
+  console.log(req.session.userId)
   db.findUserById(req.session.userId)
   .then(function(user) {
+      console.log(user)
     res.render ('clients/client',{title: 'sanity check', user: user.username});
   })
 })
@@ -38,9 +39,14 @@ router.post('/seePlaces', function(req, res, next) {
     console.log(output);
     res.render('clients/search', {output: output})
 })
-// router.post('/listPlaces', function(req, res, next) {
-//     console.log(" List places Post request recieved")
-//     console.log(req.body);
-//
-// })
+router.post('/sendPlace', function(req, res, next) {
+    console.log("Send place Post request recieved")
+    console.log(req.body);
+
+    knex('place').insert({name:req.body.name, lat:req.body.lat, lng:req.body.lng, description:req.body.description, image_url: req.body.image_url,
+    user_created: req.body.user_created, category_id: 1}).then(function() {
+        res.redirect('/clients')
+    });
+    console.log("Finished inserting")
+})
 module.exports = router;
