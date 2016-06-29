@@ -1,51 +1,16 @@
-<div class="container-fluid">
-  <header>
-    <div class="row">
-      <div class="col-md-12 col-xs-12">
-        <nav class="navbar navbar-default">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#doDenverNav" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Do Denver</a>
-          </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="doDenverNav">
-            <ul class="nav navbar-nav">
-              <li><a href="../clients/todo">Things I Want to Do</a></li>
-              <li><a href="../clients/havedone">Things I Have Done</a></li>
-              <li><a href="../clients/search">Search Things to Do</a></li>
-              <li><a href="../clients/logout">Logout</a></li>
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-      </div>
-    </nav>
-    </div>
-  </div>
-  </header>
 
-<p>{{user}}</p>
+<h1>Welcome back, {{user}}!</h1>
+<h4>Check out your map of Denver</h4>
 
-<h1>
-  {{title}}
-</h1>
+<!--
 <a href="clients/todo"><button type="button">Things I Want to do in Denver</button></a>
 <a href="clients/havedone"><button type="button">Things I Have Done in Denver</button></a>
 <a href="clients/search"><button type="button">All of the things to do in Denver</button></a>
 <a href="clients/logout"><button type="button">Log Out</button></a>
 <p class="test">
     Click to add sample to database
-</p>
+</p> -->
 <div id="map"></div>
 <script src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBzg50_Ei3s8Y6QWVBTzTz3imX-eVqGw8&callback=initMap&libraries=places" async defer></script>

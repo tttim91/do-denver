@@ -5,7 +5,7 @@ var db = require('../db/api');
 var auth = require('../auth');
 
 router.get('/', auth.isLoggedIn, function(req, res, next){
-  res.render('index', {title: 'Do Denver'});
+  res.render('index', {title: 'Do Denver', id: req.session.userId, id: req.session.userId});
 });
 
 router.post('/login',
