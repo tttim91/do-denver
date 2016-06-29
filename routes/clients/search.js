@@ -28,7 +28,7 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
                 })
             }
             console.log(answer);
-            res.render('clients/search', {answer:answer, query: req.query.query, category: req.query.category});
+            res.render('clients/search', {answer: answer, query: req.query.query, category: req.query.category, id: req.session.userId});
         })
     } else {
         res.render('clients/search');
