@@ -1,6 +1,5 @@
 $(document).ready(function(){
   $('.edit').click(function(){
-    $('.hidden_form').toggle()
-
+    $(this).next().find('.hidden_form').first().toggle()
   })
 })
