@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $( '.edit').click(function(){
-    console.lot('click')
-    $('.hidden').toggleClass('hidden')
+  $('.edit').click(function(){
+    $('.hidden_form').toggle()
+
   })
 })
