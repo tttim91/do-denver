@@ -8,7 +8,7 @@ var geo = require('../../geocode/geocode')
 router.get('/todo', auth.isNotLoggedIn, function(req, res, next){
   db.getCategories().then(function(categories){
     db.getNotVisitedPlaces(req.session.userId).then(function(places){
-      // console.log(places, categories)
+      console.log(places, categories)
       res.render('clients/todo', {categories: categories, places:places, id: req.session.userId});
     })
   })
