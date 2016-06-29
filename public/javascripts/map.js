@@ -37,11 +37,11 @@ function initMap() {
     console.log("About to print map")
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
+    map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+    
     detectBrowser();
 
     $.get('/clients/sendData').then(function(data) {
-        console.log("Get request sent");
-        console.log(data);
         placeClientMarkers(data[0], data[1]);
     });
 }
@@ -49,17 +49,29 @@ console.log("Went right past init function")
 
 
 function placeClientMarkers(userId, data) {
+    console.log(data)
     for (var i = 0; i < data.length; i++) {
         // console.log("Starting placeClientMarkers function");
         // console.log(data[0].lat);
         // console.log(data[0].lng);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: {
-                lat: data[i].lat,
-                lng: data[i].lng
-            }
-        });
+        if(data[i].have_visited == true) {
+            var marker = new google.maps.Marker({
+                map: map,
+                position: {
+                    lat: data[i].lat,
+                    lng: data[i].lng
+                }
+            });
+        } else {
+            var marker = new google.maps.Marker({
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+                position: {
+                    lat: data[i].lat,
+                    lng: data[i].lng
+                }
+            });
+        }
         attachDetails(marker, data[i]);
     }
 }

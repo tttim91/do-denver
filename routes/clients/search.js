@@ -31,7 +31,7 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
             res.render('clients/search', {answer: answer, query: req.query.query, category: req.query.category, id: req.session.userId});
         })
     } else {
-        res.render('clients/search');
+        res.render('clients/search', {id: req.session.userId});
     }
 
 });
