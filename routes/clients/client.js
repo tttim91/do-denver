@@ -4,7 +4,7 @@ var knex = require('../../db/knex');
 var db = require('../../db/api');
 var auth = require('../../auth');
 
-router.get('/', auth.isNotLoggedIn, function(req, res, next){
+router.get('/', function(req, res, next){
   console.log(req.session.userId)
   db.findUserById(req.session.userId)
   .then(function(user) {
@@ -23,6 +23,10 @@ router.get('/sendData', function(req, res, next){
     return db.joinAll(req.session.userId).then(function(data){
     console.log("tables all joined")
     res.send([req.session.userId,data]);
+<<<<<<< HEAD
+=======
+    // res.render('index', {title: 'Express'})
+>>>>>>> e250c90b372ffd6dee79208f5efcd5e1df5e8b27
   })
 })
 
@@ -31,6 +35,7 @@ router.post('/addPlace', function(req, res, next) {
         res.redirect('/');
     })
 })
+
 router.post('/seePlaces', function(req, res, next) {
     var output = [];
     console.log("Post Recieved HARD");
@@ -41,6 +46,7 @@ router.post('/seePlaces', function(req, res, next) {
     console.log(output);
     res.render('clients/search', {output: output})
 })
+
 router.post('/sendToDo', function(req, res, next) {
     console.log("Send To Do Post request recieved")
     console.log(req.body);

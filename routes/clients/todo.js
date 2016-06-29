@@ -3,6 +3,7 @@ var router = express.Router();
 var knex = require('../../db/knex');
 var db = require('../../db/api');
 var auth = require('../../auth');
+var geo = require('../../geocode/geocode')
 
 router.get('/todo', auth.isNotLoggedIn, function(req, res, next){
   db.getCategories().then(function(categories){
@@ -22,11 +23,17 @@ router.get('/havedone/:id/update', function(req, res, next){
   })
 })
 
+router.post('/todo', function (req, res, next) {
 
-router.post('/todo', function (req, res, next){
-  db.addPlaceToDo(req.body, req.session.userId).then(function() {
-    console.log(req.body, req.session.userId)
+  geo.geocoder.geocode(req.body.address).then(function(data){
+    console.log(data)
+    req.body.lat = data[0].latitude
+    req.body.lng = data[0].longitude
+    delete req.body.address
+    db.addPlaceToDo(req.body, req.session.userId).then(function() {
+      console.log(req.body, req.session.userId)
       res.redirect('/clients/todo');
+    })
   })
 });
 
