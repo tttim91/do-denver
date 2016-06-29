@@ -42,14 +42,18 @@ router.post('/seePlaces', function(req, res, next) {
     console.log(output);
     res.render('clients/search', {output: output})
 })
-router.post('/sendPlace', function(req, res, next) {
-    console.log("Send place Post request recieved")
+router.post('/sendToDo', function(req, res, next) {
+    console.log("Send To Do Post request recieved")
     console.log(req.body);
+    db.addPlaceToDo(req.body, req.session.userId).then(function(){
+        res.redirect('/clients/todo')
+    })
+})
 
-    knex('place').insert({name:req.body.name, lat:req.body.lat, lng:req.body.lng, description:req.body.description, image_url: req.body.image_url,
-    user_created: req.body.user_created, category_id: 1}).then(function() {
-        res.redirect('/clients')
-    });
-    console.log("Finished inserting")
+router.post('/sendDone', function(req, res, next) {
+    console.log("Send done Post request recieved")
+    db.addPlaceVisited(req.body, req.session.userId).then(function(){
+        res.redirect('/clients/todo')
+    })
 })
 module.exports = router;
