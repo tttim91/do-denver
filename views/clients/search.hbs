@@ -3,41 +3,40 @@
 <a href="havedone"><button type="button">Things I have done</button></a>
 <form class="" action="/clients/search" method="get">
     <select class="categorySearch" name="category">
-        <option value="restaurant">Restaurant</option>
-        <option value="amusement_park">Amusement Park</option>
-        <option value="aquarium">Aquarium</option>
-        <option value="art_gallery">Art Gallery</option>
-        <option value="bakery">Bakery</option>
-        <option value="bank">Bank</option>
-        <option value="bar">Bar</option>
-        <option value="book_store">Book Store</option>
-        <option value="bowling_alley">Bowling Alley</option>
-        <option value="cafe">Cafe</option>
-        <option value="clothing_store">Clothing Store</option>
-        <option value="convenience_store">Convenience Store</option>
-        <option value="department_store">Department Store</option>
-        <option value="electronics_store">Electronics Store</option>
-        <option value="furniture_store">Furniture Store</option>
-        <option value="gas_station">Gas Station</option>
-        <option value="grocery_or_supermarket">Grocery Store</option>
-        <option value="gym">Gym</option>
-        <option value="hardware_store">Hardware Store</option>
-        <option value="home_goods_store">Home Goods Store</option>
-        <option value="library">Library</option>
-        <option value="lodging">Lodging</option>
-        <option value="movie_theater">Movie Theater</option>
-        <option value="museum">Museum</option>
-        <option value="night_club">Night Club</option>
-        <option value="park">Park</option>
-        <option value="post_office">Post Office</option>
-        <option value="restaurant">Restaurant</option>
-        <option value="school">School</option>
-        <option value="shoe_store">Shoe Store</option>
-        <option value="shopping_mall">Shopping Mall</option>
-        <option value="spa">Spa</option>
-        <option value="stadium">Stadium</option>
-        <option value="university">University</option>
-        <option value="zoo">Zoo</option>
+        <option id="1" value="restaurant">Restaurant</option>
+        <option id="2" value="amusement_park">Amusement Park</option>
+        <option id="3" value="aquarium">Aquarium</option>
+        <option id="4" value="art_gallery">Art Gallery</option>
+        <option id="5" value="bakery">Bakery</option>
+        <option id="6" value="bank">Bank</option>
+        <option id="7" value="bar">Bar</option>
+        <option id="8" value="book_store">Book Store</option>
+        <option id="9" value="bowling_alley">Bowling Alley</option>
+        <option id="10" value="cafe">Cafe</option>
+        <option id="11" value="clothing_store">Clothing Store</option>
+        <option id="12" value="convenience_store">Convenience Store</option>
+        <option id="13" value="department_store">Department Store</option>
+        <option id="14" value="electronics_store">Electronics Store</option>
+        <option id="15" value="furniture_store">Furniture Store</option>
+        <option id="16" value="gas_station">Gas Station</option>
+        <option id="17" value="grocery_or_supermarket">Grocery Store</option>
+        <option id="18" value="gym">Gym</option>
+        <option id="19" value="hardware_store">Hardware Store</option>
+        <option id="20" value="home_goods_store">Home Goods Store</option>
+        <option id="21" value="library">Library</option>
+        <option id="22" value="lodging">Lodging</option>
+        <option id="23" value="movie_theater">Movie Theater</option>
+        <option id="24" value="museum">Museum</option>
+        <option id="25" value="night_club">Night Club</option>
+        <option id="26" value="park">Park</option>
+        <option id="27" value="post_office">Post Office</option>
+        <option id="29" value="school">School</option>
+        <option id="30" value="shoe_store">Shoe Store</option>
+        <option id="31" value="shopping_mall">Shopping Mall</option>
+        <option id="32" value="spa">Spa</option>
+        <option id="33" value="stadium">Stadium</option>
+        <option id="34" value="university">University</option>
+        <option id="35" value="zoo">Zoo</option>
     </select>
     <input class="searchTerm" type="text" name="query" placeholder="Search Term" value="{{query}}">
     <button type="submit">Search</button>
@@ -54,8 +53,11 @@
             <p>{{this.image_url}}</p>
             <p>{{this.user_created}}</p>
             <p>{{this.category_id}}</p>
+            <button class="addToDo" type="button" name="button">Add To Do</button>
+            <button class="addDone" type="button" name="button">Add Done</button>
         </div>
-</div>
+        <button class="expand" type="button" name="button">Show Details</button>
+    </div>
 {{/each}}
 </ul>
 {{/if}}

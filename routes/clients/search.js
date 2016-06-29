@@ -20,7 +20,7 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
             if (!error && response.statusCode == 200) {
                 var output = JSON.parse(body)
                 for(var i=0; i<output.results.length; i++) {
-                    answer.push({name: output.results[i].name, address: output.results[i].address, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "N/A", image_url: "N/A", user_created: false, category_id: 20})
+                    answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "N/A", image_url: "N/A", user_created: false, category_id: req.query.category})
                 }
             }
             console.log(answer);
