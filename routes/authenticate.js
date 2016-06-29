@@ -5,7 +5,7 @@ var auth = require('../auth');
 
 /* GET home page. */
 router.get('/signup', auth.isLoggedIn, function(req, res, next) {
-  res.render('auth/signup', { title: 'Express' });
+  res.render('auth/signup', { title: 'Sign Up', id: req.session.userId});
 });
 router.get('/logout', function(req, res, next){
     req.session = null;
