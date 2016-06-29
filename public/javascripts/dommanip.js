@@ -1,5 +1,6 @@
 $(document).ready(function(){
-  $( '.location > div > button').click(function(){
-    $('.hidden').toggle()
+  $( '.edit').click(function(){
+    console.lot('click')
+    $('.hidden').toggleClass('hidden')
   })
 })
