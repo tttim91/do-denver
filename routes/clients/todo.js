@@ -24,8 +24,7 @@ router.get('/havedone/:id/update', function(req, res, next){
 })
 
 
-router.post('/todo', function (req, res, next){
-  geo.convert()
+router.post('/todo', function (req, res, next) {
   db.addPlaceToDo(req.body, req.session.userId).then(function() {
     console.log(req.body, req.session.userId)
       res.redirect('/clients/todo');
