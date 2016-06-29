@@ -5,7 +5,7 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
-  db.getPlaces(req.session.userId).then(function(places){
+  db.getVisitedPlaces(req.session.userId).then(function(places){
   res.render('clients/havedone', {places: places});
   })
 });
