@@ -4,7 +4,7 @@ var knex = require('../../db/knex');
 var db = require('../../db/api');
 var auth = require('../../auth');
 
-router.get('/', auth.isNotLoggedIn, function(req, res, next){
+router.get('/', function(req, res, next){
   console.log(req.session.userId)
   db.findUserById(req.session.userId)
   .then(function(user) {
