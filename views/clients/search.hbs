@@ -44,16 +44,17 @@
 </form>
 {{#if answer}}
 {{#each answer}}
-    <div class="place">{{this.name}}
-    <div class="hidden">
-        <p>{{this.name}}</p>
-        <p>{{this.lat}}</p>
-        <p>{{this.lng}}</p>
-        <p>{{this.description}}</p>
-        <p>{{this.image_url}}</p>
-        <p>{{this.user_created}}</p>
-        <p>{{this.category_id}}</p>
-    </div>
+    <div class="place">{{this.name}} - {{this.address}}
+        {{this.image}}
+        <div class="hidden">
+            <p>{{this.name}}</p>
+            <p>{{this.lat}}</p>
+            <p>{{this.lng}}</p>
+            <p>{{this.description}}</p>
+            <p>{{this.image_url}}</p>
+            <p>{{this.user_created}}</p>
+            <p>{{this.category_id}}</p>
+        </div>
 </div>
 {{/each}}
 </ul>
