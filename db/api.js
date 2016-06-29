@@ -88,7 +88,7 @@ module.exports = {
   },
 
   joinAll: function(userId) {
-        return knex('client').select('client.first_name', 'client.last_name', 'client.username', 'client.id as client_id', 'client.password', 'place.id as place_id', 'place.name as place_name', 'place.lat', 'place.lng', 'place.description', 'place.image_url', 'category.name as category_name')
+        return knex('client').select('client.first_name', 'client.last_name', 'client.username', 'client.id as client_id', 'client.password', 'place.id as place_id', 'place.name as place_name', 'place.lat', 'place.lng', 'place.description', 'place.image_url', 'category.name as category_name', 'client_place.have_visited')
         .join('client_place', function() {
             this.on('client.id', '=', 'client_place.client_id');
         }).join('place', function() {
