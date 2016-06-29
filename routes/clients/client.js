@@ -46,6 +46,7 @@ router.post('/seePlaces', function(req, res, next) {
 router.post('/sendToDo', function(req, res, next) {
     console.log("Send To Do Post request recieved")
     console.log(req.body.lat);
+    console.log('look at me ' + req.body)
     var exists = false;
     knex('place').select('lat', 'lng').then(function(data) {
         console.log(data)
