@@ -101,8 +101,8 @@ a {
 }
 .full {
   height: 75vh;
-  width: 90.5vw;
-  border:1px solid red;
+  width: 100vw;
+  /*border:1px solid red;*/
 }
 .top:hover{
   transform: ;
@@ -116,4 +116,9 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.explanation-text {
+  width: 75vw;
+
 }
