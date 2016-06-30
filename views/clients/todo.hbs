@@ -1,10 +1,12 @@
 <div class="container-fluid">
-    <div class="row">
+    <div class="row allPlaces">
     {{#each places}}
-        <div class="col-sm-6 col-md-4 placeBeen">
+        <div class="col-sm-6 col-md-4 placeBeen thumbnail" >
         <div>
-            <p class="title">{{this.name}}</p>
+          <div class="imageCenter">
             <img class="personalImage" src="{{this.image_url}}">
+          </div>
+            <p class="title">{{this.name}}</p>
             <p>{{this.description}}</p>
         </div>
         <a class="btn btn-default" href="../clients/havedone/{{this.id}}/update" role="button">I visited this place!</a>
