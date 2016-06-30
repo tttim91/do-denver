@@ -29,22 +29,19 @@
                             </button>
                             <a class="navbar-brand" href="/clients">Do Denver</a>
                         </div>
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="doDenverNav">
-                            <ul class="nav navbar-nav">
-                                {{#if id}}
-                                    <li><a href="../clients/search">Search Denver</a></li>
-                                    <li><a href="../clients/todo">Add and View Things I Want to Do</a></li>
-                                    <li><a href="../clients/havedone">Things I Have Done</a></li>
-
-                                {{/if}}
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                {{#if id}}
-                                    <li><a href="../clients/logout">Logout</a></li>
-                                {{else}}
-
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="doDenverNav">
+                <ul class="nav navbar-nav">
+                  {{#if id}}
+                  <li><a href="../../clients/search">Search Denver</a></li>
+                  <li><a href="../../clients/todo">Add and View Things I Want to Do</a></li>
+                  <li><a href="../../clients/havedone">Things I Have Done</a></li>
+                  {{/if}}
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  {{#if id}}
+                  <li><a href="../clients/logout">Logout</a></li>
+                  {{else}}
                                     <form class="navbar-form navbar-left" role="search" action="/login" method="post">
                                         <div class="form-group">
                                             <!-- <input type="text" class="form-control" placeholder="Search"> -->
@@ -54,12 +51,8 @@
                                             <label for="password">
                                                 <input class="form-control" type="password" name="password" placeholder="Password">
                                             </label>
-
                                             <button type="submit" class="btn btn-default">Log In</button>
                                         </div>
-
-
-
                                     </form>
                                     <div class="form-group"><a href="/signup">
                                         <button class=" btn-btn-default form-control signup">Register as a New User</button>
