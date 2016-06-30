@@ -17,6 +17,10 @@ module.exports = {
     })
   },
 
+  addComment: function(body){
+    return knex('comment').insert(body, 'id')
+  },
+
   addPlaceVisited: function(body, userid){
     return knex('place').insert(body, 'id')
     .then(function(id){
@@ -55,8 +59,20 @@ module.exports = {
     return knex('place').where('place.id', id).del()
   },
 
+  deleteComment: function(id){
+      return knex('comment').where('comment.id', id).del()
+  },
+
   getCategories: function(){
     return knex('category').select();
+  },
+
+  getComments: function(id) {
+    return knex('comment').where('place_id', id)
+    .join('client', function(){
+      this.on('client_id', 'client.id')
+    }).select('client.id as clientId', 'comment.id as commentId', 'client.username', 'comment.comment_body')
+  //  return knex('comment').where('place_id', id).select()
   },
 
   getVisitedPlaces: function(id){
