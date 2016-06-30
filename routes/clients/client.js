@@ -45,7 +45,8 @@ router.post('/seePlaces', function(req, res, next) {
 router.post('/sendToDo', function(req, res, next) {
     var placeExists = false;
     var clientOwnsPlace = false;
-    Promise.all([knex('place').select('lat', 'lng'),
+    var place_id;
+    Promise.all([knex('place').select('lat', 'lng', 'id'),
     knex('client').select('client.id as client_id', 'place.id as place_id', 'client.username', 'place.lat', 'place.lng').join('client_place', function() {
         this.on('client.id', '=', 'client_place.client_id')
     }).join('place', function() {
@@ -57,6 +58,7 @@ router.post('/sendToDo', function(req, res, next) {
                 if(data[j][i].lat == Number(req.body.lat).toFixed(4) && data[j][i].lng == Number(req.body.lng).toFixed(3)) {
                     if(j==0) {
                         placeExists = true;
+                        place_id = data[0][i].id;
                     } else {
                         clientOwnsPlace = true;
                     }
@@ -68,7 +70,8 @@ router.post('/sendToDo', function(req, res, next) {
                 res.redirect('/clients/todo')
             })
         } else if(placeExists == true && clientOwnsPlace == false) {
-            knex('client_place').insert({client_id: req.session.userId, place_id: db.findPlaceIdByLatLng(req.body.lat, req.body.lng), have_visited: false}).then(function() {
+            console.log(place_id)
+            knex('client_place').insert({client_id: req.session.userId, place_id: place_id, have_visited: false}).then(function() {
                 res.redirect('/clients/todo')
             })
         } else {
