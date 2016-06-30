@@ -53,14 +53,15 @@
 {{#each answer}}
 <br>
     <div class="place">{{this.name}} - {{this.address}}
+        <img src="{{this.image}}" />
         <div class="hidden information">
             <strong>Name:</strong> <p>{{this.name}}</p>
             <strong>Latitude:</strong> <p>{{this.lat}}</p>
             <strong>Longitude:</strong> <p>{{this.lng}}</p>
             <strong>Description:</strong> <p>{{this.description}}</p>
-            <strong>Image:</strong> <p>{{this.image_url}}</p>
             <strong>User_Created:</strong> <p>{{this.user_created}}</p>
             <strong>Category_id:</strong> <p>{{this.category_id}}</p>
+            <strong>Image</strong> <p>{{this.image}}</p>
             <button class="btn btn-default addToDo" type="button" name="button">Add To Do</button>
             <button class="btn btn-default addDone" type="button" name="button">Add Done</button>
 
