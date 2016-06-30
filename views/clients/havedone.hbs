@@ -1,60 +1,119 @@
 <div class="container-fluid">
-<div class="location">
-{{#each places}}
-<div>
-    <h3>
-      {{this.name}}
-    </h3>
-    <img src="{{this.image_url}}" alt="image">
-    <!-- <button type="button" class="edit">Edit This Post</button> -->
-    <br>
-    <br>
-    <button class="btn btn-default edit" type="button">Edit this Post</button>
+  <div class="location">
+    {{#each places}}
     <div class="row">
-      <div class="col-md-12 col-xs-12">
-        <form action="//clients/havedone" method="post">
-          <div class="hidden_form">
-          <div class="form-group">
-            <label for="">ID</label>
-            <input class=".id" type="number" name="id" value="{{this.id}}">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="{{this.image_url}}" alt="...">
+          <div class="caption">
+            <h3>{{this.name}}</h3>
+            <p>{{this.description}}</p>
+            <button class="btn btn-default edit" type="button">
+              Edit this Post
+            </button>
+            <div class="row">
+              <div class="col-md-12 col-xs-12">
+                <form action="/clients/havedone" method="post">
+                  <div class="hidden_form">
+                  <div class="form-group">
+                    <label for="">ID</label>                  <input class=".id" type="number" name="id" value="{{this.id}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="text">Name</label>
+                    <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="username">Latitude</label>
+                    <input type="float" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="float">Longitude</label>
+                    <input type="float" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" rows=5>{{this.description}}</textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="url">Link to an Image of this Location</label>
+                    <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="number">Category Id</label>
+                    <input type="number" name="category_id" value="{{this.category_id}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="text">User Created</label>
+                    <input type="text" name="user_created" value="{{this.user_created}}">
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-default edit" type="submit">Submit</button>
+                </form>
+                </div>
+                  <a class="btn btn-default" href="../clients/havedone/{{this.id}}/delete" role="button">Delete</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="text">Name</label>
-            <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
-          </div>
-          <div class="form-group">
-            <label for="username">Latitude</label>
-            <input type="float" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
-          </div>
-          <div class="form-group">
-            <label for="float">Longitude</label>
-            <input type="float" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
-          </div>
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea name="description" rows=5>{{this.description}}</textarea>
-          </div>
-          <div class="form-group">
-            <label for="url">Link to an Image of this Location</label>
-            <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
-          </div>
-          <div class="form-group">
-            <label for="number">Category Id</label>
-            <input type="number" name="category_id" value="{{this.category_id}}">
-          </div>
-          <div class="form-group">
-            <label for="text">User Created</label>
-            <input type="text" name="user_created" value="{{this.user_created}}">
-          </div>
-        <div class="form-group">
-          <button class="btn btn-default edit" type="submit">Submit</button>
-        </form>
-      </div>
-        <a class="btn btn-default" href="../clients/havedone/{{this.id}}/delete" role="button">Delete</a>
+        </div>
       </div>
     </div>
-{{/each}}
-</div>
-</div>
-</div>
+
+
+      <!-- <div>
+        <h3>
+          {{this.name}}
+        </h3>
+        <img src="{{this.image_url}}" alt="image">
+        <br>
+        <br>
+        <button class="btn btn-default edit" type="button">
+          Edit this Post
+        </button>
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <form action="/clients/havedone" method="post">
+              <div class="hidden_form">
+              <div class="form-group">
+                <label for="">ID</label>                  <input class=".id" type="number" name="id" value="{{this.id}}">
+              </div>
+              <div class="form-group">
+                <label for="text">Name</label>
+                <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
+              </div>
+              <div class="form-group">
+                <label for="username">Latitude</label>
+                <input type="float" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
+              </div>
+              <div class="form-group">
+                <label for="float">Longitude</label>
+                <input type="float" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
+              </div>
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" rows=5>{{this.description}}</textarea>
+              </div>
+              <div class="form-group">
+                <label for="url">Link to an Image of this Location</label>
+                <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
+              </div>
+              <div class="form-group">
+                <label for="number">Category Id</label>
+                <input type="number" name="category_id" value="{{this.category_id}}">
+              </div>
+              <div class="form-group">
+                <label for="text">User Created</label>
+                <input type="text" name="user_created" value="{{this.user_created}}">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-default edit" type="submit">Submit</button>
+            </form>
+            </div>
+              <a class="btn btn-default" href="../clients/havedone/{{this.id}}/delete" role="button">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    {{/each}}
+  </div>
 </div>

@@ -27,13 +27,12 @@ img{
   /*height: 1rem;*/
   width: 2rem;
 }
-.mapKey {
-  border: 1px solid black;
-  border-radius: 2px;
-  width: 26%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 2rem;
+
+.expand{
+  margin-top: 20px;
+}
+
+.logIn {
+  background: none;
+  border: none;
 }
