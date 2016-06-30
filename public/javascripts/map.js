@@ -83,7 +83,7 @@ function placeClientMarkers(userId, data) {
 // marker is clicked, the info window will open with the secret message.
 function attachDetails(marker, message) {
     var infowindow = new google.maps.InfoWindow({
-        content: message.place_name + " - " + message.description
+        content: message.place_name
     });
 
     marker.addListener('click', function() {
@@ -99,7 +99,7 @@ function detectBrowser() {
         mapdiv.style.width = '100%';
         mapdiv.style.height = '100%';
     } else {
-        mapdiv.style.width = '90vw';
+        mapdiv.style.width = '60vw';
         mapdiv.style.height = '70vh';
     }
 }
