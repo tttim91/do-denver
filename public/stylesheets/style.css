@@ -40,3 +40,21 @@ img{
 .signup{
   background-color: hsl(0,0%,98%);
 }
+.full {
+  height: 75vh;
+  width: 90.5vw;
+  border:1px solid red;
+}
+.top:hover{
+  transform: ;
+}
+.blue {
+  background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
+  background-size: cover;
+}
+.white {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
