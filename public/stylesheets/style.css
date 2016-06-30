@@ -9,9 +9,9 @@ a {
   color: #00B7FF;
 }
 
-img{
-  height: 25%;
-  width: 25%;
+.personalImage{
+  height: 20%;
+  width: 20%;
 }
 
 #map {
@@ -52,36 +52,7 @@ img{
   padding: 2rem;
   border-radius: 2rem;
 }
-.landing {
-  background-image: url('http://www.denverrealestatewatch.com/wp-content/uploads/2013/03/For-Downtown-Denver-Partnership-use-only.-All-other-rights-reserved..jpg');
-  height: 100vh;
-}
-.landButton {
-  background: #3498db;
-  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-  background-image: -o-linear-gradient(top, #3498db, #2980b9);
-  background-image: linear-gradient(to bottom, #3498db, #2980b9);
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  text-shadow: 0px 1px 3px #666666;
-  font-family: Courier New;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-.landButton:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-  text-decoration: none;
-}
+
 .mapKey {
   display: flex;
   flex-direction: column;
@@ -104,9 +75,7 @@ img{
   flex-direction: row;
   padding: 5px;
 
-=======
-
-.signup{
-  background-color: hsl(0,0%,98%);
->>>>>>> f1f96ad7618e215a8f118758f6f4c990a44a50c3
-}
+/*.taco {
+  height: 1%;
+  width: 1%;
+}*/
