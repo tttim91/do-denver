@@ -40,3 +40,11 @@ img{
 .signup{
   background-color: hsl(0,0%,98%);
 }
+
+.placeBeen {
+    margin-bottom: 5%;
+}
+
+.title {
+    font-size: 2rem;
+}
