@@ -7,10 +7,10 @@ $('.addToDo').click(function() {
     var lng = Number(lngLong).toFixed(3);
     console.log(lat, lng);
     var description = $(this).parent().find('p:nth-child(8)').html();
-    var image_url = $(this).parent().find('p:nth-child(10)').html();
-    var user_created = $(this).parent().find('p:nth-child(12)').html();
-    var category = $(this).parent().find('p:nth-child(14)').html();
-    var place = {name:name, lat: lat, lng: lng, description:description, image_url:image_url, user_created:user_created, category_id:category};
+    var image = $(this).parent().find('p:nth-child(14)').html();
+    var user_created = $(this).parent().find('p:nth-child(10)').html();
+    var category = $(this).parent().find('p:nth-child(12)').html();
+    var place = {name:name, lat: lat, lng: lng, description:description, image_url:image, user_created:user_created, category_id:category};
     console.log("Add To Do Frontend check")
     console.log(place);
     $(this).append("<p>Place added in To Do List!</p>").fadeIn(300).delay(1000).fadeOut(300);
