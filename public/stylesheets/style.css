@@ -8,7 +8,13 @@ body {
 a {
   color: #00B7FF;
 }
+.imageCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5%;
 
+}
 .personalImage{
   height: 20%;
   width: 20%;
@@ -75,15 +81,22 @@ a {
   display: flex;
   flex-direction: row;
   padding: 5px;
-
+}
 /*.taco {
   height: 1%;
   width: 1%;
 }*/
 
-
+.allPlaces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  }
 .placeBeen {
-    margin-bottom: 5%;
+    margin: 2%;
+    width: 29%;
+    padding: 1%;
+
 }
 
 .title {
