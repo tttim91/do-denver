@@ -9,11 +9,16 @@ router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
   res.render('clients/havedone', {places: places, id: req.session.userId});
   })
 });
-
-router.get('/havedone/:id/comment', function(req, res, next){
+router.get('/havedone/:id', function(req, res, next){
   db.getComments(req.params.id).then(function(results){
-    console.log(results)
-    res.render('clients/comments', {comments: results})
+    console.log('results:' + results[0].comment_body)
+    res.render('clients/details', {results: results, id: req.session.userId})
+  })
+})
+
+router.get('/havedone/:id/comment', function(req, res, next) {
+  db.addComment(req.body).then(funciton(){
+    res.redirect('/clients/havedone/:id')
   })
 })
 

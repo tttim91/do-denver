@@ -17,6 +17,10 @@ module.exports = {
     })
   },
 
+  addComment: function(body){
+    return knex('comment').insert(body)
+  },
+  
   addPlaceVisited: function(body, userid){
     return knex('place').insert(body, 'id')
     .then(function(id){
@@ -60,16 +64,11 @@ module.exports = {
   },
 
   getComments: function(id) {
-    return Promise.all([
-      knex('place')
-        .join('comment', function(){
-          this.on('place.id', 'place_id');
-        }).select('comment_body', 'comment.id as comment_id').where('place.id', id).first(),
-      knex('client')
-        .join('comment', function(){
-          this.on('client_id', 'client.id');
-        }).select('username').where('place_id', id).first()
-    ])
+    return knex('comment').where('place_id', id)
+    .join('client', function(){
+      this.on('client_id', 'client.id')
+    }).select('client.id as clientId', 'comment.id as commentId', 'client.username', 'comment.comment_body')
+  //  return knex('comment').where('place_id', id).select()
   },
 
   getVisitedPlaces: function(id){
