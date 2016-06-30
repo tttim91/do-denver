@@ -6,7 +6,6 @@ var auth = require('../../auth');
 var request = require('request');
 
 function imageReferenceToImage(reference) {
-    console.log("reference", reference)
     request("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+reference+"&key=AIzaSyCBzg50_Ei3s8Y6QWVBTzTz3imX-eVqGw8", function(error, response, body) {
         return body;
     })
