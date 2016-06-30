@@ -1,8 +1,11 @@
 $('.addToDo').click(function() {
     var name = $(this).parent().find('p:nth-child(2)').html();
     console.log(name);
-    var lat = $(this).parent().find('p:nth-child(4)').html();
-    var lng = $(this).parent().find('p:nth-child(6)').html();
+    var latLong = $(this).parent().find('p:nth-child(4)').html();
+    var lngLong = $(this).parent().find('p:nth-child(6)').html();
+    var lat = Number(latLong).toFixed(4);
+    var lng = Number(lngLong).toFixed(3);
+    console.log(lat, lng);
     var description = $(this).parent().find('p:nth-child(8)').html();
     var image_url = $(this).parent().find('p:nth-child(10)').html();
     var user_created = $(this).parent().find('p:nth-child(12)').html();

@@ -98,6 +98,7 @@ module.exports = {
         }).where('client.id', '=', userId)
     },
     findPlaceIdByLatLng: function(lat, lng) {
+        console.log("Into FindPlaceId Function")
         console.log("Lat: ",lat)
         console.log("Lng: ",lng)
          knex('place')
