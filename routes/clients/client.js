@@ -75,7 +75,6 @@ router.post('/sendToDo', function(req, res, next) {
             res.redirect('/clients/search')
         }
     })
-
 })
 
 router.post('/sendDone', function(req, res, next) {
