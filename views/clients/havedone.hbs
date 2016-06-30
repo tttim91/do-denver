@@ -1,10 +1,13 @@
+<div class="layout">
+
+
 <div class="container-fluid">
   <div class="location">
     <div class="row">
     {{#each places}}
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="{{this.image_url}}" alt="...">
+          <img class="personalImage" src="{{this.image_url}}" alt="...">
           <div class="caption">
             <h3>{{this.name}}</h3>
             <p>{{this.description}}</p>
@@ -40,4 +43,5 @@
       {{/each}}
     </div>
   </div>
+</div>
 </div>
