@@ -9,7 +9,7 @@ router.get('/', function(req, res, next){
   db.findUserById(req.session.userId)
   .then(function(user) {
       console.log(user)
-    res.render ('clients/client',{user: user.username, id: req.session.userId});
+    res.render ('clients/client',{user: user.first_name, id: req.session.userId});
   })
 })
 
@@ -39,30 +39,40 @@ router.post('/seePlaces', function(req, res, next) {
     for(var i=0; i<req.body.length; i++) {
         output.push(req.body['data[results]['+i+'][name]'])
     }
-    console.log(output);
     res.render('clients/search', {output: output})
 })
 
 router.post('/sendToDo', function(req, res, next) {
-    console.log("Send To Do Post request recieved")
-    console.log(req.body.lat);
-    console.log('look at me ' + req.body)
-    var exists = false;
-    knex('place').select('lat', 'lng')
+    var placeExists = false;
+    var clientOwnsPlace = false;
+    Promise.all([knex('place').select('lat', 'lng'),
+    knex('client').select('client.id as client_id', 'place.id as place_id', 'client.username', 'place.lat', 'place.lng').join('client_place', function() {
+        this.on('client.id', '=', 'client_place.client_id')
+    }).join('place', function() {
+        this.on('client_place.place_id', '=', 'place.id')
+    }).where('client.id', '=', req.session.userId)])
     .then(function(data) {
-        console.log(data)
-        for(var i=0; i<data.length; i++) {
-            console.log("Data.lat: " + data[i].lat)
-            console.log("Req.body.lat: " + req.body.lat)
-            if(data[i].lat == Number(req.body.lat).toFixed(4) && data[i].lng == Number(req.body.lng).toFixed(3)) {
-                exists = true;
+        for(var j=0; j<2; j++) {
+            for(var i=0; i<data[j].length; i++) {
+                if(data[j][i].lat == Number(req.body.lat).toFixed(4) && data[j][i].lng == Number(req.body.lng).toFixed(3)) {
+                    if(j==0) {
+                        placeExists = true;
+                    } else {
+                        clientOwnsPlace = true;
+                    }
+                }
             }
         }
-        console.log(exists);
-        if(exists == false) {
+        if(placeExists == false && clientOwnsPlace == false) {
             db.addPlaceToDo(req.body, req.session.userId).then(function(){
                 res.redirect('/clients/todo')
             })
+        } else if(placeExists == true && clientOwnsPlace == false) {
+            knex('client_place').insert({client_id: req.session.userId, place_id: db.findPlaceIdByLatLng(req.body.lat, req.body.lng), have_visited: false}).then(function() {
+                res.redirect('/clients/todo')
+            })
+        } else {
+            res.redirect('/clients/search')
         }
     })
 

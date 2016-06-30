@@ -37,23 +37,22 @@
             <option value="university">University</option>
             <option value="zoo">Zoo</option>
         </select>
-        <input class="searchTerm" type="text" name="query" placeholder="Search Term" value="{{query}}">
+        <input id="pac-input" class="controls searchTerm" name="query" value="{{query}}" type="text" placeholder="Search for a Place">
         <button type="submit">Search</button>
       </form>
   </div>
 </div>
-
 {{#if answer}}
 {{#each answer}}
     <div class="place">{{this.name}} - {{this.address}}
-        <div class="hidden">
-            <p>{{this.name}}</p>
-            <p>{{this.lat}}</p>
-            <p>{{this.lng}}</p>
-            <p>{{this.description}}</p>
-            <p>{{this.image_url}}</p>
-            <p>{{this.user_created}}</p>
-            <p>{{this.category_id}}</p>
+        <div class="hidden information">
+            <strong>Name:</strong> <p>{{this.name}}</p>
+            <strong>Latitude:</strong> <p>{{this.lat}}</p>
+            <strong>Longitude:</strong> <p>{{this.lng}}</p>
+            <strong>Description:</strong> <p>{{this.description}}</p>
+            <strong>Image:</strong> <p>{{this.image_url}}</p>
+            <strong>User_Created:</strong> <p>{{this.user_created}}</p>
+            <strong>Category_id:</strong> <p>{{this.category_id}}</p>
             <button class="addToDo" type="button" name="button">Add To Do</button>
             <button class="addDone" type="button" name="button">Add Done</button>
         </div>
@@ -62,6 +61,6 @@
 {{/each}}
 </ul>
 {{/if}}
-
-<script src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <script src="../javascripts/googleSearch.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBzg50_Ei3s8Y6QWVBTzTz3imX-eVqGw8&callback=initMap&libraries=places" async defer></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
