@@ -81,9 +81,40 @@ router.post('/sendToDo', function(req, res, next) {
 })
 
 router.post('/sendDone', function(req, res, next) {
-    console.log("Send done Post request recieved")
-    db.addPlaceVisited(req.body, req.session.userId).then(function(){
-        res.redirect('/clients/todo')
+    var placeExists = false;
+    var clientOwnsPlace = false;
+    var place_id;
+    Promise.all([knex('place').select('lat', 'lng', 'id'),
+    knex('client').select('client.id as client_id', 'place.id as place_id', 'client.username', 'place.lat', 'place.lng').join('client_place', function() {
+        this.on('client.id', '=', 'client_place.client_id')
+    }).join('place', function() {
+        this.on('client_place.place_id', '=', 'place.id')
+    }).where('client.id', '=', req.session.userId)])
+    .then(function(data) {
+        for(var j=0; j<2; j++) {
+            for(var i=0; i<data[j].length; i++) {
+                if(data[j][i].lat == Number(req.body.lat).toFixed(4) && data[j][i].lng == Number(req.body.lng).toFixed(3)) {
+                    if(j==0) {
+                        placeExists = true;
+                        place_id = data[0][i].id;
+                    } else {
+                        clientOwnsPlace = true;
+                    }
+                }
+            }
+        }
+        if(placeExists == false && clientOwnsPlace == false) {
+            db.addPlaceToDo(req.body, req.session.userId).then(function(){
+                res.redirect('/clients/todo')
+            })
+        } else if(placeExists == true && clientOwnsPlace == false) {
+            console.log(place_id)
+            knex('client_place').insert({client_id: req.session.userId, place_id: place_id, have_visited: false}).then(function() {
+                res.redirect('/clients/todo')
+            })
+        } else {
+            res.redirect('/clients/search')
+        }
     })
 })
 module.exports = router;

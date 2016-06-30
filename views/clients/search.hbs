@@ -52,16 +52,17 @@
 {{#if answer}}
 {{#each answer}}
 <br>
-    <div class="place">{{this.name}} - {{this.address}}
-        <img src="{{this.image}}" />
+    <div class="place"><img src="{{this.image}}" />
+        {{this.name}} - {{this.address}}
+
         <div class="hidden information">
             <strong>Name:</strong> <p>{{this.name}}</p>
-            <strong>Latitude:</strong> <p>{{this.lat}}</p>
-            <strong>Longitude:</strong> <p>{{this.lng}}</p>
+            <p class="hidden">{{this.lat}}</p>
+            <p class="hidden">{{this.lng}}</p>
             <strong>Description:</strong> <p>{{this.description}}</p>
-            <strong>User_Created:</strong> <p>{{this.user_created}}</p>
-            <strong>Category_id:</strong> <p>{{this.category_id}}</p>
-            <strong>Image</strong> <p>{{this.image}}</p>
+            <p class="hidden">{{this.user_created}}</p>
+            <p class="hidden">{{this.category_id}}</p>
+            <p class="hidden">{{this.image}}</p>
             <button class="btn btn-default addToDo" type="button" name="button">Add To Do</button>
             <button class="btn btn-default addDone" type="button" name="button">Add Done</button>
 
