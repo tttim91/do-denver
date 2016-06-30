@@ -1,67 +1,76 @@
-<div class="row">
-  <div class="col-md-12 col-xs-12">
-    <form class="" action="/clients/search" method="get">
-        <select class="categorySearch" name="category">
-            <option value="restaurant">Restaurant</option>
-            <option value="amusement_park">Amusement Park</option>
-            <option value="aquarium">Aquarium</option>
-            <option value="art_gallery">Art Gallery</option>
-            <option value="bakery">Bakery</option>
-            <option value="bank">Bank</option>
-            <option value="bar">Bar</option>
-            <option value="book_store">Book Store</option>
-            <option value="bowling_alley">Bowling Alley</option>
-            <option value="cafe">Cafe</option>
-            <option value="clothing_store">Clothing Store</option>
-            <option value="convenience_store">Convenience Store</option>
-            <option value="department_store">Department Store</option>
-            <option value="electronics_store">Electronics Store</option>
-            <option value="furniture_store">Furniture Store</option>
-            <option value="gas_station">Gas Station</option>
-            <option value="grocery_or_supermarket">Grocery Store</option>
-            <option value="gym">Gym</option>
-            <option value="hardware_store">Hardware Store</option>
-            <option value="home_goods_store">Home Goods Store</option>
-            <option value="library">Library</option>
-            <option value="lodging">Lodging</option>
-            <option value="movie_theater">Movie Theater</option>
-            <option value="museum">Museum</option>
-            <option value="night_club">Night Club</option>
-            <option value="park">Park</option>
-            <option value="post_office">Post Office</option>
-            <option value="school">School</option>
-            <option value="shoe_store">Shoe Store</option>
-            <option value="shopping_mall">Shopping Mall</option>
-            <option value="spa">Spa</option>
-            <option value="stadium">Stadium</option>
-            <option value="university">University</option>
-            <option value="zoo">Zoo</option>
-        </select>
-        <input class="searchTerm" type="text" name="query" placeholder="Search Term" value="{{query}}">
-        <button type="submit">Search</button>
-      </form>
-  </div>
-</div>
+<div class="container-fluid">
+  <!-- <div class="row">
+    <div class="col-md-12 col-xs-12"> -->
+      <form class="" action="/clients/search" method="get">
+        <div class="row dropdown">
+            <div class="col-md-3 col-xs-12">
+              <select class="form-control categorySearch" name="category">
+                <option value="restaurant">Restaurant</option>
+                <option value="amusement_park">Amusement Park</option>
+                <option value="aquarium">Aquarium</option>
+                <option value="art_gallery">Art Gallery</option>
+                <option value="bakery">Bakery</option>
+                <option value="bank">Bank</option>
+                <option value="bar">Bar</option>
+                <option value="book_store">Book Store</option>
+                <option value="bowling_alley">Bowling Alley</option>
+                <option value="cafe">Cafe</option>
+                <option value="clothing_store">Clothing Store</option>
+                <option value="convenience_store">Convenience Store</option>
+                <option value="department_store">Department Store</option>
+                <option value="electronics_store">Electronics Store</option>
+                <option value="furniture_store">Furniture Store</option>
+                <option value="gas_station">Gas Station</option>
+                <option value="grocery_or_supermarket">Grocery Store</option>
+                <option value="gym">Gym</option>
+                <option value="hardware_store">Hardware Store</option>
+                <option value="home_goods_store">Home Goods Store</option>
+                <option value="library">Library</option>
+                <option value="lodging">Lodging</option>
+                <option value="movie_theater">Movie Theater</option>
+                <option value="museum">Museum</option>
+                <option value="night_club">Night Club</option>
+                <option value="park">Park</option>
+                <option value="post_office">Post Office</option>
+                <option value="school">School</option>
+                <option value="shoe_store">Shoe Store</option>
+                <option value="shopping_mall">Shopping Mall</option>
+                <option value="spa">Spa</option>
+                <option value="stadium">Stadium</option>
+                <option value="university">University</option>
+                <option value="zoo">Zoo</option>
+              </select>
+              <br>
+                <input type="text" class="input-group form-control searchTerm" name="query" placeholder="Search Term" value="{{query}}">
+              <button class="btn btn-default edit expand" type="submit">Submit</button>
+            <!-- </div>
+          </div> -->
+        </form>
+      </div>
+    </div>
 
 {{#if answer}}
 {{#each answer}}
+<br>
     <div class="place">{{this.name}} - {{this.address}}
-        <div class="hidden">
-            <p>{{this.name}}</p>
-            <p>{{this.lat}}</p>
-            <p>{{this.lng}}</p>
-            <p>{{this.description}}</p>
-            <p>{{this.image_url}}</p>
-            <p>{{this.user_created}}</p>
-            <p>{{this.category_id}}</p>
-            <button class="addToDo" type="button" name="button">Add To Do</button>
-            <button class="addDone" type="button" name="button">Add Done</button>
+        <div class="hidden information">
+            <strong>Name:</strong> <p>{{this.name}}</p>
+            <strong>Latitude:</strong> <p>{{this.lat}}</p>
+            <strong>Longitude:</strong> <p>{{this.lng}}</p>
+            <strong>Description:</strong> <p>{{this.description}}</p>
+            <strong>Image:</strong> <p>{{this.image_url}}</p>
+            <strong>User_Created:</strong> <p>{{this.user_created}}</p>
+            <strong>Category_id:</strong> <p>{{this.category_id}}</p>
+            <button class="btn btn-default addToDo" type="button" name="button">Add To Do</button>
+            <button class="btn btn-default addDone" type="button" name="button">Add Done</button>
+
         </div>
-        <button class="expand" type="button" name="button">Show Details</button>
+        <button class="btn btn-default expand" type="button" name="button">Show Details</button>
     </div>
 {{/each}}
 </ul>
 {{/if}}
-
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBzg50_Ei3s8Y6QWVBTzTz3imX-eVqGw8&callback=initMap&libraries=places" async defer></script>
 <script src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
 <script src="../javascripts/googleSearch.js"></script>

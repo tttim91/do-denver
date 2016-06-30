@@ -29,9 +29,9 @@ router.post('/todo', function (req, res, next) {
     console.log(data)
     req.body.lat = data[0].latitude
     req.body.lng = data[0].longitude
+    console.log(req.body, req.session.userId)
     delete req.body.address
     db.addPlaceToDo(req.body, req.session.userId).then(function() {
-      console.log(req.body, req.session.userId)
       res.redirect('/clients/todo');
     })
   })
