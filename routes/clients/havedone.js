@@ -5,14 +5,19 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
-  console.log(req.session.userId);
   db.getVisitedPlaces(req.session.userId).then(function(places){
   res.render('clients/havedone', {places: places, id: req.session.userId});
   })
 });
 
+router.get('/havedone/:id/comment', function(req, res, next){
+  db.getComments(req.params.id).then(function(results){
+    console.log(results)
+    res.render('clients/comments', {comments: results})
+  })
+})
+
 router.get('/havedone/:id/delete', function(req, res, next){
-      console.log(req.params.id)
     db.deletePlace(req.params.id).then(function(){
       res.redirect ('/clients/havedone');
   }).catch(function(error){

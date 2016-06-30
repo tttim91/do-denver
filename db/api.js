@@ -59,6 +59,19 @@ module.exports = {
     return knex('category').select();
   },
 
+  getComments: function(id) {
+    return Promise.all([
+      knex('place')
+        .join('comment', function(){
+          this.on('place.id', 'place_id');
+        }).select('comment_body', 'comment.id as comment_id').where('place.id', id).first(),
+      knex('client')
+        .join('comment', function(){
+          this.on('client_id', 'client.id');
+        }).select('username').where('place_id', id).first()
+    ])
+  },
+
   getVisitedPlaces: function(id){
     return knex('client').where('client.id', id).first()
     .then(function(client){
