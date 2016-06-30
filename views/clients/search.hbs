@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12 col-xs-12">
+  <!-- <div class="row">
+    <div class="col-md-12 col-xs-12"> -->
       <form class="" action="/clients/search" method="get">
         <div class="row dropdown">
             <div class="col-md-3 col-xs-12">
@@ -42,9 +42,9 @@
               </select>
               <br>
                 <input type="text" class="input-group form-control searchTerm" name="query" placeholder="Search Term" value="{{query}}">
-              <button class="btn btn-default edit expand" type="submit">Submit</button>
-            </div>
-          </div>
+              <button class="btn btn-default edit add-margin" type="submit">Submit</button>
+            <!-- </div>
+          </div> -->
         </form>
       </div>
     </div>
@@ -53,19 +53,20 @@
 {{#each answer}}
 <br>
     <div class="place">{{this.name}} - {{this.address}}
+        <img src="{{this.image}}" />
         <div class="hidden information">
             <strong>Name:</strong> <p>{{this.name}}</p>
             <strong>Latitude:</strong> <p>{{this.lat}}</p>
             <strong>Longitude:</strong> <p>{{this.lng}}</p>
             <strong>Description:</strong> <p>{{this.description}}</p>
-            <strong>Image:</strong> <p>{{this.image_url}}</p>
             <strong>User_Created:</strong> <p>{{this.user_created}}</p>
             <strong>Category_id:</strong> <p>{{this.category_id}}</p>
+            <strong>Image</strong> <p>{{this.image}}</p>
             <button class="btn btn-default addToDo" type="button" name="button">Add To Do</button>
             <button class="btn btn-default addDone" type="button" name="button">Add Done</button>
 
         </div>
-        <button class="btn btn-default expand" type="button" name="button">Show Details</button>
+        <button class="btn btn-default add-margin expand" type="button" name="button">Show Details</button>
     </div>
 {{/each}}
 </ul>

@@ -30,7 +30,7 @@ img{
   width: 2rem;
 }
 
-.expand{
+.add-margin {
   margin-top: 20px;
 }
 
@@ -38,6 +38,7 @@ img{
   background: none;
   border: none;
 }
+<<<<<<< HEAD
 .layout {
   display: flex;
   justify-content: center;
@@ -103,4 +104,9 @@ img{
   flex-direction: row;
   padding: 5px;
 
+=======
+
+.signup{
+  background-color: hsl(0,0%,98%);
+>>>>>>> f1f96ad7618e215a8f118758f6f4c990a44a50c3
 }
