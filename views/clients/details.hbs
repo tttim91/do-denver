@@ -1,8 +1,8 @@
 <h1>Comments</h1>
 {{#each results}}
 <div>
-  <p>{{this.clientId}}</p>
   <p>{{this.comment_body}}</p>
   <p>{{this.username}}</p>
+    <a class="btn btn-default" href="/clients/havedone/comment/{{this.commentId}}/delete" role="button">Delete</a>
 </div>
 {{/each}}

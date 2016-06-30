@@ -18,9 +18,9 @@ module.exports = {
   },
 
   addComment: function(body){
-    return knex('comment').insert(body)
+    return knex('comment').insert(body, 'id')
   },
-  
+
   addPlaceVisited: function(body, userid){
     return knex('place').insert(body, 'id')
     .then(function(id){
@@ -57,6 +57,10 @@ module.exports = {
 
   deletePlace: function(id){
     return knex('place').where('place.id', id).del()
+  },
+
+  deleteComment: function(id){
+      return knex('comment').where('comment.id', id).del()
   },
 
   getCategories: function(){

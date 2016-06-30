@@ -8,6 +8,7 @@
           <div class="caption">
             <h3>{{this.name}}</h3>
             <p>{{this.description}}</p>
+            <a class="btn btn-default" href="/clients/havedone/{{this.id}}/delete" role="button">Delete</a>
             <a class="btn btn-default" href="../clients/havedone/{{this.id}} " role="button">View Comments</a>
             <button class="btn btn-default edit" type="button">
               Add Comment
@@ -27,55 +28,10 @@
                     <textarea name="comment_body" rows=5 placeholder="Add Comment Body"></textarea>
                   </div>
                   <div class="form-group">
-                    <a class="btn btn-default" href="../clients/havedone/{{this.id}}/comment " role="button">View Comments</a>
-                </form>
-              </div>
-            </div>
-            <button class="btn btn-default edit" type="button">
-              Edit This Post
-            </button>
-            <div class="row">
-              <div class="col-md-12 col-xs-12">
-                <form action="/clients/havedone" method="post">
-                  <div class="hidden_form">
-                  <div class="form-group">
-                     <input class=".id" type="hidden" name="id" value="{{this.id}}">
-                  </div>
-                  <div class="form-group">
-                    <label for="text">Name</label>
-                    <input type="text" name="name" value="{{this.name}}" placeholder="{{this.name}}">
-                  </div>
-                  <div class="form-group">
-                    <input type="hidden" name="lat" value="{{this.lat}}" placeholder="{{this.lat}}">
-                  </div>
-                  <div class="form-group">
-                    <input type="hidden" name="lng" value="{{this.lng}}" placeholder="{{this.lng}}">
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea name="description" rows=5>{{this.description}}</textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="url">Link to an Image of this Location</label>
-                    <input type="url" name="image_url" value="{{this.image_url}}" placeholder="{{this.image_url}}">
-                  </div>
-                  <div class="form-group">
-                    <input type="hidden" name="category_id" value="{{this.category_id}}">
-                  </div>
-                  <div class="form-group">
-                    <input type="hidden" name="user_created" value="{{this.user_created}}">
-                  </div>
-                  <div class="form-group">
                     <button class="btn btn-default edit" type="submit">Submit</button>
                 </form>
-                </div>
-                  <a class="btn btn-default" href="../clients/havedone/{{this.id}}/delete" role="button">Delete</a>
-                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   {{/each}}
