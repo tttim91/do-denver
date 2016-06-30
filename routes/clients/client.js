@@ -27,7 +27,14 @@ router.get('/sendData', function(req, res, next){
 })
 
 router.post('/addPlace', function(req, res, next) {
-    knex('place').insert({name: req.body.name, lat:req.body.lat, lng:req.body.lng, description:"N/A", image_url:req.body.image_url, category_id: 37}).then(function() {
+    knex('place').insert(
+      {name: req.body.name,
+        lat:req.body.lat,
+        lng:req.body.lng,
+        description:"N/A",
+        image_url:req.body.image_url,
+        category_id: 37
+      }).then(function() {
         res.redirect('/');
     })
 })
@@ -104,12 +111,12 @@ router.post('/sendDone', function(req, res, next) {
             }
         }
         if(placeExists == false && clientOwnsPlace == false) {
-            db.addPlaceToDo(req.body, req.session.userId).then(function(){
+            db.addPlaceVisited(req.body, req.session.userId).then(function(){
                 res.redirect('/clients/todo')
             })
         } else if(placeExists == true && clientOwnsPlace == false) {
             console.log(place_id)
-            knex('client_place').insert({client_id: req.session.userId, place_id: place_id, have_visited: false}).then(function() {
+            knex('client_place').insert({client_id: req.session.userId, place_id: place_id, have_visited: true}).then(function() {
                 res.redirect('/clients/todo')
             })
         } else {
