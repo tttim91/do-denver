@@ -23,7 +23,6 @@ function initMap() {
         rotateControl: true,
         scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.HYBRID,
-        maxZoom: 14,
         minZoom: 9,
         zoomControlOptions: {
             position: google.maps.ControlPosition.LEFT_BOTTOM,
@@ -38,14 +37,15 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
     map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
-    
+
     detectBrowser();
 
     $.get('/clients/sendData').then(function(data) {
         placeClientMarkers(data[0], data[1]);
     });
+    console.log("After get request")
+
 }
-console.log("Went right past init function")
 
 
 function placeClientMarkers(userId, data) {
@@ -78,6 +78,7 @@ function placeClientMarkers(userId, data) {
 
 
 
+
 // Attaches an info window to a marker with the provided message. When the
 // marker is clicked, the info window will open with the secret message.
 function attachDetails(marker, message) {
@@ -98,7 +99,7 @@ function detectBrowser() {
         mapdiv.style.width = '100%';
         mapdiv.style.height = '100%';
     } else {
-        mapdiv.style.width = '50vw';
-        mapdiv.style.height = '50vh';
+        mapdiv.style.width = '90vw';
+        mapdiv.style.height = '70vh';
     }
 }

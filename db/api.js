@@ -96,5 +96,15 @@ module.exports = {
         }).join('category', function() {
             this.on('place.category_id', '=', 'category.id');
         }).where('client.id', '=', userId)
+    },
+    findPlaceIdByLatLng: function(lat, lng) {
+        console.log("Lat: ",lat)
+        console.log("Lng: ",lng)
+         knex('place')
+         .where('lat', '=', Number(lat).toFixed(4)).andWhere('lng', '=', Number(lng).toFixed(3))
+         .then(function(data) {
+             console.log("MY Api method DATA",data)
+             return data;
+         })
     }
 }
