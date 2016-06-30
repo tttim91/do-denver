@@ -36,3 +36,7 @@ img{
   background: none;
   border: none;
 }
+
+.signup{
+  background-color: hsl(0,0%,98%);
+}

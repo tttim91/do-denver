@@ -42,23 +42,23 @@
                 {{#if id}}
                   <li><a href="../clients/logout">Logout</a></li>
                 {{else}}
-                  <!-- <li><a href="/">Log In</a></li> -->
-                <!-- <div class="form-group">
-                  <input type="text" placeholder="User Name">
-                  <input type="text" placeholder="password">
-                </div> -->
-                <div class="">
-                <form action="/login" method="post" class="">
-                  <label for="username">
-                    <input type="text" name="username" placeholder="Username">
-                  </label>
-                  <label for="password">
-                    <input type="password" name="password" placeholder="Password">
-                  </label>
-                  <input type="submit" value="login">
-                </form>
+
+                <form class="navbar-form navbar-left" role="search" action="/login" method="post">
+                  <div class="form-group">
+                    <!-- <input type="text" class="form-control" placeholder="Search"> -->
+                    <label for="username">
+                      <input type="text" class="form-control" name="username" placeholder="Username">
+                    </label>
+                    <label for="password">
+                      <input class="form-control" type="password" name="password" placeholder="Password">
+                    </label>
+
+                    <button type="submit" class="btn btn-default">Log In</button>
+                  </div>
+                  <div class="form-group"
+                  <li><a href="/signup"><button class=" btn-btn-default form-control signup">Sign Up</button></a></li>
                 </div>
-                  <li><a href="/signup">Sign Up</a></li>
+                </form>
                 {{/if}}
                 </ul>
           </div>
