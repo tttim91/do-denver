@@ -1,49 +1,53 @@
 <div class="container-fluid">
-{{#each places}}
-  <div>
-    <p>{{this.name}}</p>
-    <img src="{{this.image_url}}">
-    <p>{{this.description}}</p>
-  </div>
-  <a class="btn btn-default" href="../clients/havedone/{{this.id}}/update" role="button">I visited this place!</a>
-{{/each}}
+  {{#each places}}
+    <div>
+      <p>{{this.name}}</p>
+      <img src="{{this.image_url}}">
+      <p>{{this.description}}</p>
+    </div>
+    <a class="btn btn-default" href="../clients/havedone/{{this.id}}/update" role="button">I visited this place!</a>
+  {{/each}}
 
-<div class="row">
-  <div class="col-md-12 col-xs-12">
-    <form action="/clients/todo" method="post">
-  </div>
-  <br>
-  <div class="form-group">
-    <label for="text">Name of Place</label>
+  <div class="row">
+    <div class="col-md-4 col-xs-12">
+      <form action="/clients/todo" method="post">
     <br>
-    <input type="text" name="name" placeholder="">
-  </div>
-  <div class="form-group">
-    <label id="address" for="address">Address</label>
+    <div class="form-group">
+      <label for="text">Name of Place</label>
+      <br>
+      <input type="text" class="input-group form-control" name="name" placeholder="">
+    </div>
+    <div class="form-group">
+      <label id="address" for="address">Address</label>
+      <br>
+      <input class="input-group form-control" name="address" type="address" placeholder="ex. 1644 Platte St Denver, CO 80202">
+    </div>
+    <div class="form-group">
+      <label for="textarea">Description</label>
+      <br>
+      <textarea class="input-group form-control" name="description" rows=5>{{this.description}}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="url">Image URL</label>
+      <br>
+      <input class="input-group form-control" type="url" name="image_url" placeholder="{{this.image_url}}">
+    </div>
+    <!-- <select class="form-control categorySearch" name="category"> -->
+
+      <select class="form-control" name="category_id">
+        {{#each categories}}
+          <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+      </select>
+    </div>
+    </div>
     <br>
-    <input name="address" type="address" placeholder="1644 Platte St Denver, CO 80202">
-  </div>
-  <div class="form-group">
-    <label for="textarea">Description</label>
+    <input type="hidden" name="user_created" value="true">
     <br>
-    <textarea name="description" rows=5>{{this.description}}</textarea>
-  </div>
-  <div class="form-group">
-    <label for="url">Image URL</label>
-    <br>
-    <input type="url" name="image_url" placeholder="{{this.image_url}}">
-  </div>
-  <select name="category_id">
-    {{#each categories}}
-      <option value="{{this.id}}">{{this.name}}</option>
-    {{/each}}
-  </select>
-  <br>
-  <input type="hidden" name="user_created" value="true">
-  <br>
-  <button class="btn btn-default" type="submit">Add to my To Do List</button>
-</form>
+    <button class="btn btn-default" type="submit">Add to my To Do List</button>
+  </form>
 
 <br>
 <br>
+</div>
 </div>
