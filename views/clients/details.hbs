@@ -1,8 +1,38 @@
-<h1>Comments</h1>
-{{#each results}}
-<div>
-  <p>{{this.comment_body}}</p>
-  <p>{{this.username}}</p>
-    <a class="btn btn-default" href="/clients/havedone/comment/{{this.commentId}}/delete" role="button">Delete</a>
+<div class="layout">
+  <div class="container-fluid">
+      <div class="location">
+          <div class="row">
+              <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail">
+                      <img class="personalImage" src="{{post.image_url}}" alt="...">
+                      <div class="caption">
+                          <h3>{{post.name}}</h3>
+                          <p>{{post.description}}</p>
+                          <button class="btn btn-default edit" type="button">
+                              View Comments
+                          </button>
+                          <div class="row">
+                              <div class="col-md-12 col-xs-12">
+                                  <div class="hidden_form">
+                                      {{#each comment}}
+                                            <div>
+                                              <div class="comment">
+                                                <p>Comment: {{this.comment_body}}</p>
+                                              </div>
+                                              <p>Username:
+                                              {{this.username}}</p>
+                                            </div>
+                                      {{/each}}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
-{{/each}}
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="../../javascripts/dommanip.js"></script>
