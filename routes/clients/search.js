@@ -20,9 +20,6 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
                 var output = JSON.parse(body)
                 knex('category').select('id').where('name', '=', req.query.category).first().then(function(id) {
                     for(var i=0; i<output.results.length; i++) {
-                        // if(output.results[i].photos) {
-                        //     console.log(output.results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}))
-                        // }
                         if(output.results[i].icon) {
                             answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "Google Places Generated Place (No Description)", image: output.results[i].icon, user_created: false, category_id: id.id, rating: output.results[i].rating})
                         } else {
