@@ -11,9 +11,15 @@ router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
 });
 
 router.get('/havedone/:id', function(req, res, next){
+  console.log('hitting route')
   db.getComments(req.params.id).then(function(results){
-    console.log('results: ' + results[0].username + results[0].comment_body + typeof results[0].username)
-    res.render('clients/details', {results: results[0], id: req.session.userId})
+    console.log(results[0][0].comment_body)
+    console.log(results[1].description)
+    res.render('clients/details', {
+      comment: results[0],
+      post: results[1],
+      add: 'Add Comment'
+    })
   })
 })
 
