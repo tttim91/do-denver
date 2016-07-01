@@ -24,9 +24,9 @@ router.get('/search', auth.isNotLoggedIn, function(req, res, next){
                         //     console.log(output.results[i].photos[0].getUrl({'maxWidth': 100, 'maxHeight': 100}))
                         // }
                         if(output.results[i].icon) {
-                            answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "Google Places Generated Place (No Description)", image: output.results[i].icon, user_created: false, category_id: id.id})
+                            answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "Google Places Generated Place (No Description)", image: output.results[i].icon, user_created: false, category_id: id.id, rating: output.results[i].rating})
                         } else {
-                            answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "Google Places Generated Place (No Description)", image: "http://www.nattynutrition.com/layout/images/NoPhotoDefault.png?1298563334", user_created: false, category_id: id.id})
+                            answer.push({name: output.results[i].name, address: output.results[i].vicinity, lat: output.results[i].geometry.location.lat, lng: output.results[i].geometry.location.lng, description: "Google Places Generated Place (No Description)", image: "http://www.nattynutrition.com/layout/images/NoPhotoDefault.png?1298563334", user_created: false, category_id: id.id, rating: output.results[i].rating})
                         }
                     }
                     res.render('clients/search', {answer: answer, query: req.query.query, category: req.query.category, id: req.session.userId});
