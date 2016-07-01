@@ -177,3 +177,8 @@ a {
   background-color: hsla(0,0%,90%, 0.65);
   font-size: 3rem;
 }
+
+.bgimg {
+  background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
+  opacity: 0.5;
+}
