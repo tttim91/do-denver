@@ -171,8 +171,9 @@ a {
 }
 
 .btn-lg {
-  height: 15vh;
+  height: 10vh;
   width: 15vw;
   background: none;
-  background-color: hsla(0,0%,90%, 0.55);
+  background-color: hsla(0,0%,90%, 0.65);
+  font-size: 3rem;
 }
