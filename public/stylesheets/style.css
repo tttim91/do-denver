@@ -1,5 +1,6 @@
 
 @import url(https://fonts.googleapis.com/css?family=Bevan);
+@import url(https://fonts.googleapis.com/css?family=Special+Elite);
 
 body{
   overflow-x: hidden;
@@ -7,10 +8,7 @@ body{
 }
 
 body {
-  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
-  /*background-color: hsl(109, 91%, 53%);*/
 }
 
 a {
@@ -68,18 +66,6 @@ a {
   border-radius: 2rem;
 }
 
-.mapKey {
-  display: flex;
-  flex-direction: column;
-  align-items:flex-start;
-  justify-content: flex-end;
-  border: solid black .10rem;
-  height:auto;
-  width: 29%;
-  padding: 1rem;
-  border-radius: 1rem;
-}
-
 .placeIvisit {
   display: flex;
   flex-direction: row;
@@ -112,9 +98,7 @@ a {
   width: 100%;
   margin-left: 0px;
 }
-/*.top:hover{
-  transform: ;
-}*/
+
 .imageHolder{
   display: flex;
   justify-content: center;
@@ -124,8 +108,6 @@ a {
   height: 73vh;
   background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
   background-size: cover;
-    /*background-attachment: fixed;*/
-
 }
 .secondImage {
   height: 70vh;
@@ -138,8 +120,6 @@ a {
   width: 35rem;
   background-image: url(/images/dodenver3.png);
   background-size: cover;
-    /*background-attachment: fixed;*/
-
 }
 .fourthImage {
 
@@ -147,8 +127,6 @@ a {
   width: 35rem;
   background-image: url(/images/dodenverfour.png);
   background-size: cover;
-    /*background-attachment: fixed;*/
-
 }
 .landingText {
   display: flex;
@@ -157,7 +135,6 @@ a {
   justify-content: center;
   height: 40rem;
 }
-
 .explanation-text {
   width: 120rem;
 
@@ -182,15 +159,7 @@ a {
   background: none;
   background-color: hsla(0,0%,90%, 0.65);
   font-size: 3rem;
-  font-family: 'Bevan', cursive;  
-}
-
-
-.bgimg {
-  background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
-  /*opacity: 0.5;*/
-background-size: cover;
-  /*background-color: blue;*/
+  font-family: 'Special Elite', cursive;
 }
 
 .comment {
@@ -199,5 +168,5 @@ background-size: cover;
 }
 
 header {
-
+font-family: 'Special Elite', cursive;
 }
