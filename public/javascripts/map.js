@@ -39,6 +39,12 @@ function initMap() {
 
     detectBrowser();
 
+    google.maps.event.addListener(map, 'center_changed', function() {
+                window.setTimeout(function() {
+                  map.setCenter(denver);
+                });
+            });
+
     $.get('/clients/sendData').then(function(data) {
         placeClientMarkers(data[0], data[1]);
     });
@@ -83,4 +89,17 @@ function attachDetails(marker, message) {
     marker.addListener('click', function() {
         infowindow.open(marker.get('map'), marker);
     });
+}
+
+function detectBrowser() {
+    var useragent = navigator.userAgent;
+    var mapdiv = document.getElementById("map");
+
+    if (useragent.indexOf('iPhone') != -1 || useragent.indexOf('Android') != -1) {
+        mapdiv.style.width = '100%';
+        mapdiv.style.height = '100%';
+    } else {
+        mapdiv.style.width = '60vw';
+        mapdiv.style.height = '50vh';
+    }
 }
