@@ -163,8 +163,11 @@ a {
 }
 
 .comment {
-  background-color: grey;
+  border-radius: 5px;
+  background-color: rgb(236, 241, 236);
   border-top: 5%;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 header {
