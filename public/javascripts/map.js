@@ -39,11 +39,11 @@ function initMap() {
 
     detectBrowser();
 
-    google.maps.event.addListener(map, 'center_changed', function() {
-                window.setTimeout(function() {
-                  map.setCenter(denver);
-                });
-            });
+    // google.maps.event.addListener(map, 'center_changed', function() {
+    //             window.setTimeout(function() {
+    //               map.setCenter(denver);
+    //             });
+    //         });
 
     $.get('/clients/sendData').then(function(data) {
         placeClientMarkers(data[0], data[1]);
@@ -54,9 +54,6 @@ function initMap() {
 
 function placeClientMarkers(userId, data) {
     for (var i = 0; i < data.length; i++) {
-        // console.log("Starting placeClientMarkers function");
-        // console.log(data[0].lat);
-        // console.log(data[0].lng);
         if(data[i].have_visited == true) {
             var marker = new google.maps.Marker({
                 map: map,
