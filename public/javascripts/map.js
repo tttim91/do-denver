@@ -54,9 +54,6 @@ function initMap() {
 
 function placeClientMarkers(userId, data) {
     for (var i = 0; i < data.length; i++) {
-        // console.log("Starting placeClientMarkers function");
-        // console.log(data[0].lat);
-        // console.log(data[0].lng);
         if(data[i].have_visited == true) {
             var marker = new google.maps.Marker({
                 map: map,
