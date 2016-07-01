@@ -139,9 +139,10 @@ a {
 
 }
 .fourthImage {
+
   height: 35rem;
   width: 35rem;
-  background-image: url(/images/dodenverthree.png);
+  background-image: url(/images/dodenverfour.png);
   background-size: cover;
     /*background-attachment: fixed;*/
 
