@@ -22,6 +22,7 @@ a {
 
 #map {
     height: 100%;
+    /*width: 60%;*/
 }
 
 .hidden_form{
@@ -82,16 +83,13 @@ a {
   flex-direction: row;
   padding: 5px;
 }
-/*.taco {
-  height: 1%;
-  width: 1%;
-}*/
 
 .allPlaces {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  }
+}
+
 .placeBeen {
     margin: 1%;
     width: 29%;
