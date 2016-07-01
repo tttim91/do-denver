@@ -75,14 +75,6 @@ module.exports = {
     ])
   },
 
-  // getComments: function(id) {
-  //   return knex('comment').where('place_id', id)
-  //   .join('client', function(){
-  //     this.on('client_id', 'client.id')
-  //   }).select('client.id as clientId', 'comment.id as commentId', 'client.username', 'comment.comment_body')
-  // //  return knex('comment').where('place_id', id).select()
-  // },
-
   getVisitedPlaces: function(id){
     return knex('client').where('client.id', id).first()
     .then(function(client){
