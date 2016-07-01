@@ -18,7 +18,8 @@ router.get('/havedone/:id', function(req, res, next){
     res.render('clients/details', {
       comment: results[0],
       post: results[1],
-      add: 'Add Comment'
+      add: 'Add Comment',
+      id: req.session.userId
     })
   })
 })
