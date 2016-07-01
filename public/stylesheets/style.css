@@ -181,7 +181,12 @@ a {
   font-size: 3rem;
 }
 
+
 .bgimg {
   background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
   opacity: 0.5;
+
+.comment {
+  background-color: grey;
+  border-top: 5%;
 }
