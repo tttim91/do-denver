@@ -175,7 +175,7 @@ a {
 
 .btn-lg {
   height: 10rem;
-  width: 20rem;
+  width: 120rem;
   background: none;
   background-color: hsla(0,0%,90%, 0.65);
   font-size: 3rem;
@@ -192,4 +192,8 @@ background-size: cover;
 .comment {
   background-color: grey;
   border-top: 5%;
+}
+
+header {
+
 }
