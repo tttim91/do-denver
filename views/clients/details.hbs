@@ -15,9 +15,12 @@
                               <div class="col-md-12 col-xs-12">
                                   <div class="hidden_form">
                                       {{#each comment}}
-                                            <div class="comment">
-                                              <p>value="{{this.comment_body}}"</p>
-                                              <p>{{this.username}}">
+                                            <div>
+                                              <div class="comment">
+                                                <p>Comment: {{this.comment_body}}</p>
+                                              </div>
+                                              <p>Username:
+                                              {{this.username}}</p>
                                             </div>
                                       {{/each}}
                                   </div>
@@ -30,3 +33,6 @@
       </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="../../javascripts/dommanip.js"></script>
