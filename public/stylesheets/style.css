@@ -111,6 +111,11 @@ a {
 .top:hover{
   transform: ;
 }
+.imageHolder{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .firstImage {
   height: 70vh;
   background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
@@ -120,21 +125,22 @@ a {
 }
 .secondImage {
   height: 70vh;
-  background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
+  width: 70vw;
+  background-image:url(/images/dodenverone.jpg);
   background-size: cover;
-    /*background-attachment: fixed;*/
-
 }
 .thirdImage {
-  height: 70vh;
-  background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
+  height: 35vh;
+  width: 35vw;
+  background-image: url(/images/dodenver3.png);
   background-size: cover;
     /*background-attachment: fixed;*/
 
 }
 .fourthImage {
-  height: 70vh;
-  background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
+  height: 35vh;
+  width: 35vw;
+  background-image: url(/images/dodenverthree.png);
   background-size: cover;
     /*background-attachment: fixed;*/
 
