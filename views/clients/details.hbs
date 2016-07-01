@@ -1,8 +1,31 @@
-<h1>Comments</h1>
+<!-- <h1>Comments</h1>
+
+<div class="container-fluid">
+  <div class="location">
+    <div class="row">
+      {{#each results}}
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img class="personalImage" src="{{this.image_url}}" alt="...">
+          <div class="caption">
+            <h3>{{this.name}}</h3>
+            <p>{{this.description}}</p>
+              <div>
+                <p>{{this.comment_body}}</p>
+                <p>{{this.username}}</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div> -->
 {{#each results}}
 <div>
-  <p>{{this.comment_body}}</p>
+  <p>{{this.clientId}}</p>
   <p>{{this.username}}</p>
-    <a class="btn btn-default" href="/clients/havedone/comment/{{this.commentId}}/delete" role="button">Delete</a>
+  <p>{{this.comment_body}}</p>
+  <p>{{this.commentId}}</p>
 </div>
 {{/each}}
