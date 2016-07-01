@@ -12,7 +12,6 @@ router.get('/havedone', auth.isNotLoggedIn, function(req, res, next){
 
 router.get('/havedone/:id', function(req, res, next){
   db.getComments(req.params.id).then(function(results){
-    console.log('results:' + results[0].comment_body)
     res.render('clients/details', {results: results, id: req.session.userId})
   })
 })
@@ -37,7 +36,6 @@ router.post('/havedone', function (req, res, next) {
   //     res.redirect('/clients/havedone');
   //   })
   db.addComment(req.body).then(function(){
-    console.log(req.body)
     res.redirect('/clients/havedone')
   })
 });

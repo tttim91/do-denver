@@ -25,7 +25,7 @@ module.exports = {
             return id[0];
         })
     },
-  
+
     isLoggedIn: function(req, res, next) {
         if(req.session.userId) {
             res.redirect('/clients');
@@ -41,12 +41,9 @@ module.exports = {
         }
     },
     isPermittedToPage: function(req, res, next) {
-        console.log(req.session.userId);
         if(req.session.userId === db.findPostUserIdBySessionId(req.params.id)) {
-            console.log("MIDDLEWARE ACCEPTED: NEXT()")
             next();
         } else {
-            console.log("redirect to home. MIDDLEWARE FAIL")
             res.redirect('/');
         }
     }
