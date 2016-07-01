@@ -8,7 +8,6 @@ module.exports = {
   addPlaceToDo: function(body, userid){
     return knex('place').insert(body, 'id')
     .then(function(id){
-      console.log('this is the id' + id)
       return knex('client_place').insert({
         client_id: userid,
         place_id: id[0],
@@ -24,7 +23,6 @@ module.exports = {
   addPlaceVisited: function(body, userid){
     return knex('place').insert(body, 'id')
     .then(function(id){
-      console.log('this is the id' + id)
       return knex('client_place').insert({
         client_id: userid,
         place_id: id[0],
