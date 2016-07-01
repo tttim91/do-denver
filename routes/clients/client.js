@@ -5,10 +5,8 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/', auth.isNotLoggedIn, function(req, res, next){
-  console.log(req.session.userId)
   db.findUserById(req.session.userId)
   .then(function(user) {
-      console.log(user)
     res.render ('clients/client',{user: user.first_name, id: req.session.userId});
   })
 })
@@ -19,9 +17,7 @@ router.get('/logout', function(req, res, next){
 })
 
 router.get('/sendData', function(req, res, next){
-    console.log("Send Data route hit")
     return db.joinAll(req.session.userId).then(function(data){
-    console.log("tables all joined")
     res.send([req.session.userId,data]);
   })
 })
@@ -41,8 +37,6 @@ router.post('/addPlace', function(req, res, next) {
 
 router.post('/seePlaces', function(req, res, next) {
     var output = [];
-    console.log("Post Recieved HARD");
-    console.log(req.body.length);
     for(var i=0; i<req.body.length; i++) {
         output.push(req.body['data[results]['+i+'][name]'])
     }
@@ -77,7 +71,6 @@ router.post('/sendToDo', function(req, res, next) {
                 res.redirect('/clients/todo')
             })
         } else if(placeExists == true && clientOwnsPlace == false) {
-            console.log(place_id)
             knex('client_place').insert({client_id: req.session.userId, place_id: place_id, have_visited: false}).then(function() {
                 res.redirect('/clients/todo')
             })
@@ -115,7 +108,6 @@ router.post('/sendDone', function(req, res, next) {
                 res.redirect('/clients/todo')
             })
         } else if(placeExists == true && clientOwnsPlace == false) {
-            console.log(place_id)
             knex('client_place').insert({client_id: req.session.userId, place_id: place_id, have_visited: true}).then(function() {
                 res.redirect('/clients/todo')
             })

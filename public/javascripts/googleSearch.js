@@ -43,7 +43,6 @@ function initMap() {
         new google.maps.LatLng(39.507912, -104.808508));
 
         var options = {bounds: defaultBounds};
-        console.log("About to select input")
         var input = document.getElementsByClassName('searchTerm')[0];
         autocomplete = new google.maps.places.Autocomplete(input, options);
 }
