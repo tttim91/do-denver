@@ -101,25 +101,42 @@ a {
     font-size: 2rem;
 }
 .full {
-  height: 75vh;
-  width: 100vw;
+
+  width: 100%;
+  margin-left: 0px;
   /*border:1px solid red;*/
 }
 .top:hover{
   transform: ;
 }
 .blue {
+  height: 70vh;
   background-image: url(http://www.imfromdenver.com/wp-content/uploads/2014/05/20120906160547-d62557f3.jpg);
   background-size: cover;
+    /*background-attachment: fixed;*/
+
 }
 .white {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 60vh;
 }
 
 .explanation-text {
   width: 75vw;
+}
 
+.container-fluid{
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.padding-left{
+  padding-left: 3rem;
 }
