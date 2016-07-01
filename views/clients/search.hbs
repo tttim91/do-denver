@@ -65,6 +65,9 @@
             <p class="hidden">{{this.user_created}}</p>
             <p class="hidden">{{this.category_id}}</p>
             <p class="hidden">{{this.image}}</p>
+            {{#if this.rating}}
+            <strong>Google Rating:</strong><p>{{this.rating}}</p>
+            {{/if}}
             <button class="btn btn-default addToDo" type="button" name="button">Add To Do</button>
             <button class="btn btn-default addDone" type="button" name="button">Add Done</button>
 
