@@ -5,9 +5,14 @@ var db = require('../../db/api');
 var auth = require('../../auth');
 
 router.get('/', auth.isNotLoggedIn, function(req, res, next){
-  db.findUserById(req.session.userId)
-  .then(function(user) {
-    res.render ('clients/client',{user: user.first_name, id: req.session.userId});
+    Promise.all([
+  db.findUserById(req.session.userId),
+  db.getRecommendedPlaces()
+  ])
+  .then(function(data) {
+      var user = data[0];
+      var places = data[1];
+    res.render ('clients/client',{user: user.first_name, id: req.session.userId, places: places});
   })
 })
 
