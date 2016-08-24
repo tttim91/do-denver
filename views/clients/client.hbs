@@ -1,24 +1,33 @@
 <div class="padding-left">
-<h1>
+    <h1>
   Welcome, {{user}}!
 </h1>
-<h4>
+    <h4>
   Check out your map of Denver to see
   <img class="wantVisit" src="http://www.clker.com/cliparts/T/Q/m/G/0/o/green-marker-black-border-hi.png">
   Places You Want to Visit and
 
   <img class="iVisit" src="http://www.girardonline.com/wp-content/uploads/2015/02/google-maps-marker-for-residencelamontagne-hi.png"> Places You Have Visited.
 </h4>
-<h5> Is your map blank? Add new places from "Search Denver" or add custom places from "Places I Want to Visit"</h5>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-2 col-xs-12">
-      <div id="map">
-      </div>
-  </div>
+    <h5> Is your map blank? Add new places from "Search Denver" or add custom places from "Places I Want to Visit"</h5>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-2 col-xs-12">
+                <div id="map">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+<h2>Recommended Place in Denver</h2>
+<div>
+    {{#each places}}
+        <div>
+            {{this.name}}
+            <img class="taco" src="{{this.image_url}}" />
+        </div>
+    {{/each}}
 </div>
 <script src="../javascripts/map.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBzg50_Ei3s8Y6QWVBTzTz3imX-eVqGw8&callback=initMap&libraries=places" async defer></script>
-<script src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>

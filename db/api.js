@@ -112,5 +112,15 @@ module.exports = {
         }).join('category', function() {
             this.on('place.category_id', '=', 'category.id');
         }).where('client.id', '=', userId)
+    },
+    getRecommendedPlaces: function() {
+        return knex('place').select('place.name', 'place.image_url')
+        .then(function(places) {
+            var randomPlaces = [];
+            for(var i=0; i<5; i++) {
+                randomPlaces.push(places[Math.floor(Math.random()*places.length)])
+            }
+            return randomPlaces;
+        })
     }
 }
