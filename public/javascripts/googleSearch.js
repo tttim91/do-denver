@@ -28,6 +28,22 @@ $('.addDone').click(function() {
     $.post('/clients/sendDone', place)
 })
 
+$('.addToDoRec').click(function() {
+    var name = $(this).parent().find('p:nth-child(2)').html();
+    var id = $(this).parent().find('p:nth-child(3)').html();
+    var place = {name: name, id:id};
+    $(this).append("<p>Place added to To Do List!</p>").fadeIn(300).delay(1000).fadeOut(300);
+    $.post('/clients/sendToDoRec', place);
+})
+
+$('.addDoneRec').click(function() {
+    var name = $(this).parent().find('p:nth-child(2)').html();
+    var id = $(this).parent().find('p:nth-child(3)').html();
+    var place = {name: name, id:id};
+    $(this).append("<p>Place added to Done List!</p>").fadeIn(300).delay(1000).fadeOut(300);
+    $.post('/clients/sendDoneRec', place);
+})
+
 $('.expand').click(function() {
     $(this).prev().toggleClass('hidden');
     if($(this).text() === "Show Details") {

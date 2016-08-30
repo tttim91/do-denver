@@ -19,15 +19,24 @@
         </div>
     </div>
 </div>
-<h2>Recommended Place in Denver</h2>
-<div>
-    {{#each places}}
-        <div>
-            {{this.name}}
-            <img class="taco" src="{{this.image_url}}" />
-        </div>
-    {{/each}}
+<div class="recommendation">
+    <h2>Recommended Places in Denver</h2>
+    <div>
+        {{#each places}}
+            <div>
+                <img class="recommendedImage" src="{{this.image_url}}" />
+                <p>{{this.name}}</p>
+                <p class="hidden">{{this.id}}</p>
+                <button class="btn btn-default addToDoRec" type="button" name="button">Add To Do</button>
+                <button class="btn btn-default addDoneRec" type="button" name="button">Add Done</button>
+                {{#if message}}
+                    {{message}}
+                {{/if}}
+            </div>
+        {{/each}}
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script src="../javascripts/googleSearch.js"></script>
 <script src="../javascripts/map.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBzg50_Ei3s8Y6QWVBTzTz3imX-eVqGw8&callback=initMap&libraries=places" async defer></script>
-<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>

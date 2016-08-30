@@ -173,3 +173,18 @@ a {
 header {
 font-family: 'Special Elite', cursive;
 }
+
+.recommendedImage {
+    width: 10rem;
+    height: 10rem;
+    margin-top: 5rem;
+}
+
+.recommendation {
+    position: relative;
+    width: 59%;
+    left: 20%;
+    border: 1px solid black;
+    margin-top: 5rem;
+    padding: 2rem;
+}

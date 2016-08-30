@@ -121,4 +121,55 @@ router.post('/sendDone', function(req, res, next) {
         }
     })
 })
+
+router.post('/sendToDoRec', function(req, res, next) {
+    var clientOwnsPlace = false;
+    var place_id;
+    knex('client').select('client.id as client_id', 'place.id as place_id', 'client.username', 'place.name').join('client_place', function() {
+        this.on('client.id', '=', 'client_place.client_id')
+    }).join('place', function() {
+        this.on('client_place.place_id', '=', 'place.id')
+    }).where('client.id', '=', req.session.userId)
+    .then(function(data) {
+        for(var i=0; i<data.length; i++) {
+            if(data[i].name == req.body.name) {
+                clientOwnsPlace = true;
+            }
+        }
+        if(clientOwnsPlace == false) {
+            db.addMyPlaceToDo(req.body, req.session.userId).then(function(){
+                res.redirect('/clients/todo');
+            })
+        } else {
+            var message = "You are have that place in your to do list!"
+            res.redirect('/clients/search', {message: message})
+        }
+    })
+})
+
+router.post('/sendDoneRec', function(req, res, next) {
+    var clientOwnsPlace = false;
+    var place_id;
+    knex('client').select('client.id as client_id', 'place.id as place_id', 'client.username', 'place.name').join('client_place', function() {
+        this.on('client.id', '=', 'client_place.client_id')
+    }).join('place', function() {
+        this.on('client_place.place_id', '=', 'place.id')
+    }).where('client.id', '=', req.session.userId)
+    .then(function(data) {
+        for(var i=0; i<data.length; i++) {
+            if(data[i].name == req.body.name) {
+                clientOwnsPlace = true;
+            }
+        }
+        if(clientOwnsPlace == false) {
+            db.addMyPlaceDone(req.body, req.session.userId).then(function(){
+                res.redirect('/clients/done');
+            })
+        } else {
+            var message = "You are have that place in your to do list!"
+            res.redirect('/clients/search')
+        }
+    })
+})
+
 module.exports = router;

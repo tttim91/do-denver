@@ -16,6 +16,22 @@ module.exports = {
     })
   },
 
+  addMyPlaceToDo: function(body, userid) {
+      return knex('client_place').insert({
+          client_id: userid,
+          place_id: body.id,
+          have_visited: false
+      })
+  },
+
+  addMyPlaceDone: function(body, userid) {
+      return knex('client_place').insert({
+          client_id: userid,
+          place_id: body.id,
+          have_visited: true
+      })
+  },
+
   addComment: function(body){
     return knex('comment').insert(body, 'id')
   },
@@ -113,8 +129,9 @@ module.exports = {
             this.on('place.category_id', '=', 'category.id');
         }).where('client.id', '=', userId)
     },
+
     getRecommendedPlaces: function() {
-        return knex('place').select('place.name', 'place.image_url')
+        return knex('place').select('place.id', 'place.name', 'place.image_url')
         .then(function(places) {
             var randomPlaces = [];
             for(var i=0; i<5; i++) {
