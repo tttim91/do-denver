@@ -22,7 +22,9 @@
                                               <p>Username:
                                               {{this.username}}</p>
                                             </div>
+                                            {{#if ismine}}
                                             <a class="btn btn-default" href="/clients/havedone/comment/{{this.commentId}}/delete" role="button">Delete</a>
+                                            {{/if}}
                                       {{/each}}
                                   </div>
                               </div>
